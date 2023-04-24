@@ -1,9 +1,27 @@
-import React from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect } from "react";
+import { auth } from "./api/api";
+import { userSignIn, userSignOut } from "./api/authMethods";
+import { useStore } from "./store";
 import "./styles/index.css";
 
 const App = () => {
-  console.log(import.meta.env.VITE_SERVER_URL);
-  
+  const { user, setUser } = useStore();
+
+  useEffect(() => {
+    const unsubAuthState = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+
+        setUser(user);
+      } else {
+        setUser(undefined);
+      }
+    });
+
+    return unsubAuthState;
+  }, []);
+
   return (
     <div className="px-4 max-w-screen-xl mx-auto">
       <div className="flex flex-col items-center gap-2 justify-center py-12">
@@ -11,6 +29,15 @@ const App = () => {
           <a href="/">#Moto Rent</a>
         </h2>
         <img className="max-w-5xl" alt="" src="/rent-moto/assets/hero.svg" />
+
+        {user ? (
+          <>
+            {user?.email}
+            <button onClick={userSignOut}>sign out</button>
+          </>
+        ) : (
+          <button onClick={userSignIn}>sign in</button>
+        )}
       </div>
     </div>
   );
