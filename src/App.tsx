@@ -5,7 +5,7 @@ import { userSignIn, userSignOut } from "./api/authMethods";
 import { saveUser } from "./api/dbMethods";
 import { useStore } from "./store";
 import "./styles/index.css";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { user, setUser } = useStore();
@@ -20,7 +20,9 @@ const App = () => {
       }
     });
 
-    return unsubAuthState;
+    return () => {
+      unsubAuthState();
+    };
   }, []);
 
   return (
