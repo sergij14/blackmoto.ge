@@ -1,1 +1,1 @@
-# moto-rent.github.io
+# moto-rent
