@@ -4,7 +4,7 @@ import { auth, provider } from "./api";
 
 export const userSignIn = async () => {
   try {
-    signInWithPopup(auth, provider);
+    await signInWithPopup(auth, provider);
   } catch (err: any) {
     toast.error(err.message);
   }
@@ -12,7 +12,7 @@ export const userSignIn = async () => {
 
 export const userSignOut = async () => {
   try {
-    signOut(auth);
+    await signOut(auth);
   } catch (err: any) {
     toast.error(err.message);
   }

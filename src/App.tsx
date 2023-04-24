@@ -1,10 +1,11 @@
-import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./api/api";
 import { userSignIn, userSignOut } from "./api/authMethods";
 import { saveUser } from "./api/dbMethods";
 import { useStore } from "./store";
 import "./styles/index.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const { user, setUser } = useStore();
