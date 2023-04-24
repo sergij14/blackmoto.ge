@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => {
-  return <div>Moto Rent</div>;
+  return <div>MotoRent</div>;
 };
 
 export default App;
