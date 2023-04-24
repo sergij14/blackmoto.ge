@@ -2,6 +2,8 @@ import React from "react";
 import "./styles/index.css";
 
 const App = () => {
+  console.log(import.meta.env.SERVER_URL);
+  
   return (
     <div className="px-4 max-w-screen-xl mx-auto">
       <div className="flex flex-col items-center gap-2 justify-center py-12">
