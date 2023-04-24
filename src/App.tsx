@@ -8,7 +8,7 @@ const App = () => {
         <h2 className="text-3xl md:text-4xl xl:text-5xl font-black">
           <a href="/">#Moto Rent</a>
         </h2>
-        <img className="max-w-5xl" alt="" src="./assets/hero.svg" />
+        <img className="max-w-5xl" alt="" src="/rent-moto/assets/hero.svg" />
       </div>
     </div>
   );
