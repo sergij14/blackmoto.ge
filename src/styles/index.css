@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-c-bg text-white;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
