@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/index.css";
 
 const App = () => {
-  console.log(import.meta.env.SERVER_URL);
+  console.log(import.meta.env.VITE_SERVER_URL);
   
   return (
     <div className="px-4 max-w-screen-xl mx-auto">
