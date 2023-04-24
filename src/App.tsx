@@ -2,6 +2,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect } from "react";
 import { auth } from "./api/api";
 import { userSignIn, userSignOut } from "./api/authMethods";
+import { saveUser } from "./api/dbMethods";
 import { useStore } from "./store";
 import "./styles/index.css";
 
@@ -11,9 +12,8 @@ const App = () => {
   useEffect(() => {
     const unsubAuthState = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
-
         setUser(user);
+        saveUser(user);
       } else {
         setUser(undefined);
       }
