@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply bg-c-bg text-white;
+  @apply bg-c-bg text-gray-300;
 }
 
 img {
   width: 100%;
   max-width: 100%;
   display: block;
+}
+
+a:hover {
+  @apply text-white;
 }

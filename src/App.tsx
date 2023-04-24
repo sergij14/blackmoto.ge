@@ -5,10 +5,10 @@ const App = () => {
   return (
     <div className="px-4 max-w-screen-xl mx-auto">
       <div className="flex flex-col items-center gap-2 justify-center py-12">
-        <h2 className="text-3xl font-black">
+        <h2 className="text-3xl md:text-4xl xl:text-5xl font-black">
           <a href="/">#Moto Rent</a>
         </h2>
-        <img className="max-w-5xl" alt="" src="/assets/hero.svg" />
+        <img className="max-w-5xl" alt="" src="./assets/hero.svg" />
       </div>
     </div>
   );
