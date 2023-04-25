@@ -1,47 +1,23 @@
-import React, { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./api/api";
-import { userSignIn, userSignOut } from "./api/authMethods";
-import { saveUser } from "./api/dbMethods";
-import { useStore } from "./store";
+import React from "react";
 import "./styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Admin from "./pages/Admin";
+import PrivateRoute from "./utils/PrivateRoute";
+import DashBoard from "./pages/DashBoard";
 
 const App = () => {
-  const { user, setUser } = useStore();
-
-  useEffect(() => {
-    const unsubAuthState = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        saveUser(user);
-      } else {
-        setUser(undefined);
-      }
-    });
-
-    return () => {
-      unsubAuthState();
-    };
-  }, []);
-
   return (
     <div className="px-4 max-w-screen-xl mx-auto">
-      <div className="flex flex-col items-center gap-2 justify-center py-12">
-        <h2 className="text-3xl md:text-4xl xl:text-5xl font-black">
-          <a href="/">#Moto Rent</a>
-        </h2>
-        <img className="max-w-5xl" alt="" src="/rent-moto/assets/hero.svg" />
-
-        {user ? (
-          <>
-            {user?.email}
-            <button onClick={userSignOut}>sign out</button>
-          </>
-        ) : (
-          <button onClick={userSignIn}>sign in</button>
-        )}
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route
+          path="/dashboard"
+          element={<PrivateRoute component={DashBoard} />}
+        />
+      </Routes>
     </div>
   );
 };
