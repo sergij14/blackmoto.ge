@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import DashBoard from "./pages/DashBoard";
 import { useStore } from "./store";
+import AdminEdit from "./pages/AdminEdit";
 
 const PrivateRoute: FC<{
   component: React.FC;
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/:id" element={<AdminEdit />} />
         <Route
           path="/dashboard"
           element={<PrivateRoute component={DashBoard} />}

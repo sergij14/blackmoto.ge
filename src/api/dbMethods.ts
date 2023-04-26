@@ -1,18 +1,9 @@
 import { uuidv4 } from "@firebase/util";
 import { User } from "firebase/auth";
-import {
-  collection,
-  doc,
-  DocumentData,
-  getDoc,
-  getDocs,
-  setDoc,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { Item } from "../types";
+import { Item, ItemWithId } from "../types";
 import { db } from "./api";
-
-type FormDataWithID = Item & { id: string };
 
 export const saveUser = async (user: User) => {
   const { uid, displayName, photoURL, email } = user;
@@ -32,9 +23,9 @@ export const saveUser = async (user: User) => {
 };
 
 export const saveItem = async (item: Item) => {
-  (item as FormDataWithID).id = uuidv4();
+  (item as ItemWithId).id = uuidv4();
 
-  const docRef = doc(db, "motos", (item as FormDataWithID).id);
+  const docRef = doc(db, "motos", (item as ItemWithId).id);
 
   try {
     await setDoc(docRef, item);
@@ -43,16 +34,15 @@ export const saveItem = async (item: Item) => {
   }
 };
 
-export const getItems = async (col: string) => {
-  const data: DocumentData[] = [];
+export const getItem = async (col: string, key: string) => {
   try {
-    const querySnapshot = await getDocs(collection(db, col));
-    querySnapshot.forEach((doc) => {
-      const docData = doc.data();
-      data.push(docData);
-    });
+    const docRef = doc(db, col, key);
+    const docSnap = await getDoc(docRef);
 
-    return data;
+    if (docSnap.exists()) {
+      return docSnap.data();
+    }
+    return null;
   } catch (err: any) {
     toast.error(err.mesage);
   }

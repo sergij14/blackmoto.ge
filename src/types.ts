@@ -13,3 +13,4 @@ export const itemFormSchema = yup
   .required();
 
 export type Item = yup.InferType<typeof itemFormSchema>;
+export type ItemWithId = Item & { id: string };

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useStore } from "../store";
 import { auth, db } from "../api/api";
-import { Item } from "../types";
-import { getItems, saveUser } from "../api/dbMethods";
+import { Item, ItemWithId } from "../types";
+import { saveUser } from "../api/dbMethods";
 import { userSignIn, userSignOut } from "../api/authMethods";
 import ItemForm from "../components/ItemForm/ItemForm";
 import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
   const { user, setUser, items, setItems } = useStore();
@@ -42,13 +43,17 @@ const Admin = () => {
           <button onClick={userSignOut}>sign out</button>
 
           <div>
-            {items.map(({ title, engine, price }, idx) => (
-              <div key={`${title}_${price}_${idx}`}>
-                <p>{title}</p>
-                <p>{engine}</p>
-                <p>{price}</p>
-              </div>
-            ))}
+            {(items as ItemWithId[]).map(
+              ({ title, engine, price, id }, idx) => (
+                <div key={id}>
+                  <p style={{ color: "red" }}>
+                    <Link to={id}>{title}</Link>
+                  </p>
+                  <p>{engine}</p>
+                  <p>{price}</p>
+                </div>
+              )
+            )}
           </div>
           <div>
             <ItemForm />
