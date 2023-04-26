@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormData, itemFormSchema } from "../../types";
+import { Item, itemFormSchema } from "../../types";
 import FormField from "./FormField";
 import { saveItem } from "../../api/dbMethods";
 
@@ -29,22 +29,22 @@ export default function ItemForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<Item>({
     resolver: yupResolver(itemFormSchema),
   });
-  const onSubmit = (data: FormData) => saveItem(data);
+  const onSubmit = (data: Item) => saveItem(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {Object.keys(formFields).map((fieldName) => {
+      {Object.keys(formFields).map((fieldName, idx) => {
         const { label, type } = formFields[fieldName];
 
         return (
           <FormField
-            key={fieldName}
+            key={`${fieldName}_${idx}`}
             label={label}
             type={type}
-            fieldName={fieldName as keyof FormData}
+            fieldName={fieldName as keyof Item}
             register={register}
             errors={errors}
           />

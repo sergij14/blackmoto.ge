@@ -1,6 +1,6 @@
 import React from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { FormData } from "../../types";
+import { Item } from "../../types";
 
 interface PropTypes {
   register: UseFormRegister<{
@@ -17,7 +17,7 @@ interface PropTypes {
     price: string;
     tax: string;
   }>;
-  fieldName: keyof FormData;
+  fieldName: keyof Item;
   label: string;
   type?: string;
 }

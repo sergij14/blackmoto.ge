@@ -9,10 +9,10 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { FormData } from "../types";
+import { Item } from "../types";
 import { db } from "./api";
 
-type FormDataWithID = FormData & { id: string };
+type FormDataWithID = Item & { id: string };
 
 export const saveUser = async (user: User) => {
   const { uid, displayName, photoURL, email } = user;
@@ -31,7 +31,7 @@ export const saveUser = async (user: User) => {
   }
 };
 
-export const saveItem = async (item: FormData) => {
+export const saveItem = async (item: Item) => {
   (item as FormDataWithID).id = uuidv4();
 
   const docRef = doc(db, "motos", (item as FormDataWithID).id);

@@ -12,4 +12,4 @@ export const itemFormSchema = yup
   })
   .required();
 
-export type FormData = yup.InferType<typeof itemFormSchema>;
+export type Item = yup.InferType<typeof itemFormSchema>;

@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useStore } from "../store";
 import { auth, db } from "../api/api";
-import { FormData } from "../types";
+import { Item } from "../types";
 import { getItems, saveUser } from "../api/dbMethods";
 import { userSignIn, userSignOut } from "../api/authMethods";
 import ItemForm from "../components/ItemForm/ItemForm";
 import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
 
 const Admin = () => {
-  const { user, setUser } = useStore();
-  const [items, setItems] = useState<FormData[]>([]);
+  const { user, setUser, items, setItems } = useStore();
 
   useEffect(() => {
     const unsubAuthState = onAuthStateChanged(auth, (user) => {
@@ -24,13 +23,9 @@ const Admin = () => {
 
     const q = query(collection(db, "motos"));
     const unsubItemsDbState = onSnapshot(q, (querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        setItems((prev) => [...prev, doc.data() as FormData]);
-      });
-    });
-
-    getItems("motos").then((data) => {
-      setItems(data as FormData[]);
+      const data: Item[] = [];
+      querySnapshot.forEach((doc) => data.push(doc.data() as Item));
+      setItems(data);
     });
 
     return () => {
