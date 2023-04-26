@@ -1,6 +1,13 @@
 import { uuidv4 } from "@firebase/util";
 import { User } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  DocumentData,
+  getDoc,
+  getDocs,
+  setDoc,
+} from "firebase/firestore";
 import { toast } from "react-toastify";
 import { FormData } from "../types";
 import { db } from "./api";
@@ -31,6 +38,21 @@ export const saveItem = async (item: FormData) => {
 
   try {
     await setDoc(docRef, item);
+  } catch (err: any) {
+    toast.error(err.mesage);
+  }
+};
+
+export const getItems = async (col: string) => {
+  const data: DocumentData[] = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, col));
+    querySnapshot.forEach((doc) => {
+      const docData = doc.data();
+      data.push(docData);
+    });
+
+    return data;
   } catch (err: any) {
     toast.error(err.mesage);
   }
