@@ -24,7 +24,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/:id" element={<AdminEdit />} />
+        <Route
+          path="/admin/:id"
+          element={<PrivateRoute component={AdminEdit} />}
+        />
         <Route
           path="/dashboard"
           element={<PrivateRoute component={DashBoard} />}

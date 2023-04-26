@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Item, itemFormSchema, ItemWithId } from "../../types";
 import FormField from "./FormField";
 import { getItem, saveItem, updateItem } from "../../api/dbMethods";
-import { db } from "../../api/api";
-import { doc, DocumentData } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 const formFields: { [key: string]: { label: string; type?: string } } = {
@@ -28,14 +26,7 @@ const formFields: { [key: string]: { label: string; type?: string } } = {
 };
 
 export default function ItemForm({ itemId }: { itemId?: string }) {
-  const [itemToEdit, setItemToEdit] = useState<DocumentData>();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (itemId) {
-      setItemToEdit(doc(db, "motos", itemId));
-    }
-  }, [itemId]);
 
   const {
     register,
@@ -50,7 +41,7 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
 
   const onSubmit = async (data: Item) => {
     if (isDirty) {
-      if (itemToEdit && itemId) {
+      if (itemId) {
         await updateItem({ col: "motos", data, key: itemId });
         navigate("/admin");
       } else {
