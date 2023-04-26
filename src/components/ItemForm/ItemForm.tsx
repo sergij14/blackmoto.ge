@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormData, itemFormSchema } from "../../types";
 import FormField from "./FormField";
+import { saveItem } from "../../api/dbMethods";
 
 const formFields: { [key: string]: { label: string; type?: string } } = {
   title: {
@@ -31,7 +32,7 @@ export default function ItemForm() {
   } = useForm<FormData>({
     resolver: yupResolver(itemFormSchema),
   });
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = (data: FormData) => saveItem(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

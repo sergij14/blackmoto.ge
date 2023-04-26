@@ -1,7 +1,11 @@
+import { uuidv4 } from "@firebase/util";
 import { User } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { FormData } from "../types";
 import { db } from "./api";
+
+type FormDataWithID = FormData & { id: string };
 
 export const saveUser = async (user: User) => {
   const { uid, displayName, photoURL, email } = user;
@@ -15,6 +19,18 @@ export const saveUser = async (user: User) => {
 
   try {
     await setDoc(docRef, { uid, displayName, photoURL, email });
+  } catch (err: any) {
+    toast.error(err.mesage);
+  }
+};
+
+export const saveItem = async (item: FormData) => {
+  (item as FormDataWithID).id = uuidv4();
+
+  const docRef = doc(db, "motos", (item as FormDataWithID).id);
+
+  try {
+    await setDoc(docRef, item);
   } catch (err: any) {
     toast.error(err.mesage);
   }
