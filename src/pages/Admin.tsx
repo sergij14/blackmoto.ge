@@ -4,6 +4,7 @@ import { useStore } from "../store";
 import { auth } from "../api/api";
 import { saveUser } from "../api/dbMethods";
 import { userSignIn, userSignOut } from "../api/authMethods";
+import ItemForm from "../components/ItemForm/ItemForm";
 
 const Admin = () => {
   const { user, setUser } = useStore();
@@ -29,6 +30,10 @@ const Admin = () => {
         <>
           {user?.email}
           <button onClick={userSignOut}>sign out</button>
+
+          <div>
+            <ItemForm />
+          </div>
         </>
       ) : (
         <button onClick={userSignIn}>sign in</button>
