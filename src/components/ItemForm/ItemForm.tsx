@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Item, itemFormSchema, ItemWithId } from "../../types";
 import FormField from "./FormField";
-import { saveItem } from "../../api/dbMethods";
+import { getItem, saveItem, updateItem } from "../../api/dbMethods";
+import { db } from "../../api/api";
+import { doc, DocumentData } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const formFields: { [key: string]: { label: string; type?: string } } = {
   title: {
@@ -24,18 +27,37 @@ const formFields: { [key: string]: { label: string; type?: string } } = {
   },
 };
 
-export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
-  const { engine, id, img, price, tax, title } = itemToEdit ?? {};
+export default function ItemForm({ itemId }: { itemId?: string }) {
+  const [itemToEdit, setItemToEdit] = useState<DocumentData>();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (itemId) {
+      setItemToEdit(doc(db, "motos", itemId));
+    }
+  }, [itemId]);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isDirty },
   } = useForm<Item>({
     resolver: yupResolver(itemFormSchema),
-    defaultValues: itemToEdit ? { img, price, tax, title, engine } : undefined,
+    defaultValues: async () => (await getItem("motos", itemId!)) as Item,
   });
-  const onSubmit = (data: Item) => saveItem(data);
+
+  const onSubmit = async (data: Item) => {
+    if (isDirty) {
+      if (itemToEdit) {
+        await updateItem(data);
+        navigate("/admin");
+      } else {
+        await saveItem(data);
+        reset(undefined);
+      }
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -53,7 +75,9 @@ export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
           />
         );
       })}
-      <button type="submit">submit</button>
+      <button disabled={!isDirty} type="submit">
+        submit
+      </button>
     </form>
   );
 }

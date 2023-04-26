@@ -1,6 +1,6 @@
 import { uuidv4 } from "@firebase/util";
 import { User } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { Item, ItemWithId } from "../types";
 import { db } from "./api";
@@ -29,6 +29,19 @@ export const saveItem = async (item: Item) => {
 
   try {
     await setDoc(docRef, item);
+  } catch (err: any) {
+    toast.error(err.mesage);
+  }
+};
+
+export const updateItem = async (item: Item) => {
+
+  const docRef = doc(db, "motos", (item as ItemWithId).id);
+
+  console.log(docRef);
+  
+  try {
+    await updateDoc(docRef, {...item});
   } catch (err: any) {
     toast.error(err.mesage);
   }
