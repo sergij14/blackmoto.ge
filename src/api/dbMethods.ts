@@ -22,32 +22,37 @@ export const saveUser = async (user: User) => {
   }
 };
 
-export const saveItem = async (item: Item) => {
-  (item as ItemWithId).id = uuidv4();
+export const saveItem = async ({ col, data }: { col: string; data: Item }) => {
+  (data as ItemWithId).id = uuidv4();
 
-  const docRef = doc(db, "motos", (item as ItemWithId).id);
+  const docRef = doc(db, col, (data as ItemWithId).id);
 
   try {
-    await setDoc(docRef, item);
+    await setDoc(docRef, data);
   } catch (err: any) {
     toast.error(err.mesage);
   }
 };
 
-export const updateItem = async (item: Item) => {
+export const updateItem = async ({
+  col,
+  key,
+  data,
+}: {
+  col: string;
+  key: string;
+  data: Item;
+}) => {
+  const docRef = doc(db, col, key);
 
-  const docRef = doc(db, "motos", (item as ItemWithId).id);
-
-  console.log(docRef);
-  
   try {
-    await updateDoc(docRef, {...item});
+    await updateDoc(docRef, { ...data });
   } catch (err: any) {
     toast.error(err.mesage);
   }
 };
 
-export const getItem = async (col: string, key: string) => {
+export const getItem = async ({ col, key }: { col: string; key: string }) => {
   try {
     const docRef = doc(db, col, key);
     const docSnap = await getDoc(docRef);

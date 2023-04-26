@@ -45,13 +45,15 @@ const Admin = () => {
           <div>
             {(items as ItemWithId[]).map(
               ({ title, engine, price, id }, idx) => (
-                <div key={id}>
+                <div key={`${id} + ${idx}`}>
                   <p style={{ color: "red" }}>
                     <Link to={id}>{title}</Link>
                   </p>
                   <p>{engine}</p>
                   <p>{price}</p>
                 </div>
+
+                
               )
             )}
           </div>

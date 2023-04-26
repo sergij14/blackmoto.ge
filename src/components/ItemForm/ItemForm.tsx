@@ -44,16 +44,17 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
     formState: { errors, isDirty },
   } = useForm<Item>({
     resolver: yupResolver(itemFormSchema),
-    defaultValues: async () => (await getItem("motos", itemId!)) as Item,
+    defaultValues: async () =>
+      (await getItem({ col: "motos", key: itemId! })) as Item,
   });
 
   const onSubmit = async (data: Item) => {
     if (isDirty) {
-      if (itemToEdit) {
-        await updateItem(data);
+      if (itemToEdit && itemId) {
+        await updateItem({ col: "motos", data, key: itemId });
         navigate("/admin");
       } else {
-        await saveItem(data);
+        await saveItem({ col: "motos", data });
         reset(undefined);
       }
     }
