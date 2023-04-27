@@ -21,22 +21,20 @@ const PrivateRoute: FC<{
 
 const App = () => {
   return (
-    <div className="px-4 max-w-screen-xl mx-auto">
-      <Routes>
-        <Route path="/" element={<AppWrapper />}>
-          <Route index element={<Home />} />
-          <Route path="admin" element={<Admin />} />
-          <Route
-            path="admin/:id"
-            element={<PrivateRoute component={AdminEdit} />}
-          />
-          <Route
-            path="dashboard"
-            element={<PrivateRoute component={DashBoard} />}
-          />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<AppWrapper />}>
+        <Route index element={<Home />} />
+        <Route path="admin" element={<Admin />} />
+        <Route
+          path="admin/:id"
+          element={<PrivateRoute component={AdminEdit} />}
+        />
+        <Route
+          path="dashboard"
+          element={<PrivateRoute component={DashBoard} />}
+        />
+      </Route>
+    </Routes>
   );
 };
 
