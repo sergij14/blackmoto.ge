@@ -11,10 +11,10 @@ const AdminEdit = () => {
   const [dataAvailable, setDataAvailable] = useState(false);
 
   const getItemToEdit = async (itemId: string) => {
-    const item = await getItem({ col: "motos", key: itemId });
+    const item = await getItem<ItemWithId>({ col: "motos", key: itemId });
 
     setDataAvailable(() => {
-      setItemToEdit(item as any);
+      setItemToEdit(item);
       return true;
     });
   };

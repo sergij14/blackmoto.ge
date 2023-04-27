@@ -1,13 +1,13 @@
 import { User } from "firebase/auth";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { Item } from "../types";
+import { Item, ItemWithId } from "../types";
 
 interface State {
   user: User | undefined;
   setUser: (user: User | undefined) => void;
-  items: Item[];
-  setItems: (items: Item[]) => void;
+  items: ItemWithId[];
+  setItems: (items: ItemWithId[]) => void;
 }
 
 export const useStore = create<State>()(

@@ -42,10 +42,10 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
   const onSubmit = async (data: Item) => {
     if (isDirty) {
       if (itemId) {
-        await updateItem({ col: "motos", data, key: itemId });
+        await updateItem<Item>({ col: "motos", data, key: itemId });
         navigate("/admin");
       } else {
-        await saveItem({ col: "motos", data });
+        await saveItem<Item>({ col: "motos", data });
         reset(undefined);
       }
     }

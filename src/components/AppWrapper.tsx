@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useStore } from "../store";
 import { auth, db } from "../api/api";
-import { Item } from "../types";
-import { saveUser } from "../api/dbMethods";
+import { Item, ItemWithId } from "../types";
+import { createCollection, saveUser } from "../api/dbMethods";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import { Outlet } from "react-router-dom";
 
@@ -20,10 +20,10 @@ const AppWrapper = () => {
       }
     });
 
-    const q = query(collection(db, "motos"));
+    const q = query(createCollection<ItemWithId>("motos"));
     const unsubItemsDbState = onSnapshot(q, (querySnapshot) => {
-      const data: Item[] = [];
-      querySnapshot.forEach((doc) => data.push(doc.data() as Item));
+      const data: ItemWithId[] = [];
+      querySnapshot.forEach((doc) => data.push(doc.data()));
       setItems(data);
     });
 

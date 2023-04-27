@@ -1,9 +1,20 @@
 import { uuidv4 } from "@firebase/util";
 import { User } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  CollectionReference,
+  doc,
+  DocumentData,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { toast } from "react-toastify";
-import { Item, ItemWithId } from "../types";
 import { db } from "./api";
+
+export const createCollection = <T = DocumentData>(collectionName: string) => {
+  return collection(db, collectionName) as CollectionReference<T>;
+};
 
 export const saveUser = async (user: User) => {
   const { uid, displayName, photoURL, email } = user;
@@ -22,45 +33,54 @@ export const saveUser = async (user: User) => {
   }
 };
 
-export const saveItem = async ({ col, data }: { col: string; data: Item }) => {
-  (data as ItemWithId).id = uuidv4();
+export const saveItem = async <T>({ col, data }: { col: string; data: T }) => {
+  const id = uuidv4();
 
-  const docRef = doc(db, col, (data as ItemWithId).id);
+  const dataToSave = { ...data, id };
+  const dbCol = createCollection<T>(col);
+  const docRef = doc(dbCol, id);
 
   try {
-    await setDoc(docRef, data);
+    await setDoc(docRef, dataToSave);
   } catch (err: any) {
     toast.error(err.mesage);
   }
 };
 
-export const updateItem = async ({
+export const updateItem = async <T>({
   col,
   key,
   data,
 }: {
   col: string;
   key: string;
-  data: Item;
+  data: T;
 }) => {
-  const docRef = doc(db, col, key);
+  const dbCol = createCollection<T>(col);
+  const docRef = doc(dbCol, key);
 
   try {
-    await updateDoc(docRef, { ...data });
+    await updateDoc(docRef, data as any);
   } catch (err: any) {
     toast.error(err.mesage);
   }
 };
 
-export const getItem = async ({ col, key }: { col: string; key: string }) => {
+export const getItem = async <T>({
+  col,
+  key,
+}: {
+  col: string;
+  key: string;
+}) => {
   try {
-    const docRef = doc(db, col, key);
+    const dbCol = createCollection<T>(col);
+    const docRef = doc(dbCol, key);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       return docSnap.data();
     }
-    return null;
   } catch (err: any) {
     toast.error(err.mesage);
   }
