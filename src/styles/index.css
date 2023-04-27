@@ -15,6 +15,9 @@
   .item {
     @apply opacity-90 hover:opacity-100 flex flex-col;
   }
+  .form-field {
+    @apply p-3 rounded-md text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring ring-gray-400;
+  }
 }
 
 svg {

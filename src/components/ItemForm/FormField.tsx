@@ -22,14 +22,27 @@ interface PropTypes {
   type?: string;
 }
 
-const FormField = ({ register, errors, fieldName, type }: PropTypes) => (
+const FormField = ({ register, errors, label, fieldName, type }: PropTypes) => (
   <>
+    <label htmlFor={fieldName} className="text-lg font-bold mt-2">
+      {label}
+    </label>
     {type === "textarea" ? (
-      <textarea {...register(fieldName)}></textarea>
+      <textarea
+        className="form-field min-h-[150px] max-h-[300px]"
+        id={fieldName}
+        placeholder={label + "..."}
+        {...register(fieldName)}
+      ></textarea>
     ) : (
-      <input {...register(fieldName)} />
+      <input
+        className="form-field"
+        id={fieldName}
+        placeholder={label + "..."}
+        {...register(fieldName)}
+      />
     )}
-    <p>{errors[fieldName]?.message}</p>
+    <p className="text-red-400">{errors[fieldName]?.message}</p>
   </>
 );
 

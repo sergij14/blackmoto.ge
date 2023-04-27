@@ -7,11 +7,15 @@ import { useStore } from "../store";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { items } = useStore();
+  const { items, user } = useStore();
   return (
     <>
       <div className="relative flex flex-col justify-center items-center gap-40 md:gap-56 py-8">
-      <img className="-z-10 absolute top-0 left-0 opacity-30 w-full h-full object-contain object-top" alt="" src="/rent-moto/assets/hero.svg" />
+        <img
+          className="-z-10 absolute top-0 left-0 opacity-30 w-full h-full object-contain object-top"
+          alt=""
+          src="/rent-moto/assets/hero.svg"
+        />
 
         <h4 className="text-5xl md:text-[60px] font-black text-center">
           Rent Motos In Tbilisi
@@ -32,15 +36,14 @@ const Home = () => {
         <div className="items">
           {items.map(({ title, engine, price, id, img, tax }, idx) => (
             <div className="item" key={`${id} + ${idx}`}>
-              <Link to={"admin/" + id}>
+              {user ? (
+                <Link to={"admin/" + id}>
+                  <img className="rounded-md" src={img} alt={title} />
+                </Link>
+              ) : (
                 <img className="rounded-md" src={img} alt={title} />
-              </Link>
-              <Link
-                className="text-xl text-white font-bold my-2"
-                to={"admin/" + id}
-              >
-                {title}
-              </Link>
+              )}
+              <h4 className="text-xl text-white font-bold my-2">{title}</h4>
               <p>
                 <b>Engine:</b> {engine}
               </p>
@@ -52,6 +55,7 @@ const Home = () => {
               </p>
             </div>
           ))}
+          {!items.length && <p>No Motos...</p>}
         </div>
       </div>
     </>

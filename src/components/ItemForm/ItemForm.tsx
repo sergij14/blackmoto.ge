@@ -15,13 +15,13 @@ const formFields: { [key: string]: { label: string; type?: string } } = {
   },
   price: {
     type: "textarea",
-    label: "Price",
+    label: "Prices",
   },
   tax: {
-    label: "Price",
+    label: "Tax",
   },
   engine: {
-    label: "engine",
+    label: "Engine",
   },
 };
 
@@ -31,7 +31,6 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isDirty },
   } = useForm<Item>({
     resolver: yupResolver(itemFormSchema),
@@ -43,16 +42,19 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
     if (isDirty) {
       if (itemId) {
         await updateItem<Item>({ col: "motos", data, key: itemId });
-        navigate("/admin");
+        navigate("/");
       } else {
         await saveItem<Item>({ col: "motos", data });
-        reset(undefined);
+        navigate("/");
       }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex gap-2 flex-col max-w-xl"
+    >
       {Object.keys(formFields).map((fieldName, idx) => {
         const { label, type } = formFields[fieldName];
 
@@ -67,8 +69,12 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
           />
         );
       })}
-      <button disabled={!isDirty} type="submit">
-        submit
+      <button
+        className="mt-8 hero-btn self-start disabled:opacity-70 disabled:pointer-events-none"
+        disabled={!isDirty}
+        type="submit"
+      >
+        {itemId ? "Edit" : "Create"}
       </button>
     </form>
   );

@@ -28,8 +28,11 @@ const AdminEdit = () => {
   if (!dataAvailable) {
     return <p>Loading...</p>;
   }
+  
   return (
     <div>
+      <h4 className="text-3xl font-black mb-4">Edit moto - {itemToEdit?.title}</h4>
+
       {itemToEdit ? <ItemForm itemId={id} /> : <Navigate to="/admin" />}
     </div>
   );
