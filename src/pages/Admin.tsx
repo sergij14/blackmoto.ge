@@ -2,17 +2,18 @@ import React from "react";
 import { useStore } from "../store";
 import { userSignIn, userSignOut } from "../api/authMethods";
 import ItemForm from "../components/ItemForm/ItemForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Admin = () => {
   const { user, items } = useStore();
+  const navigate = useNavigate();
 
   return (
     <>
       {user ? (
         <>
           {user?.email}
-          <button onClick={userSignOut}>sign out</button>
+          <button onClick={() => userSignOut(navigate)}>sign out</button>
 
           <div>
             {items.map(({ title, engine, price, id }, idx) => (
