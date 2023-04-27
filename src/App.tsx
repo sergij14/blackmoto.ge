@@ -8,6 +8,7 @@ import Admin from "./pages/Admin";
 import DashBoard from "./pages/DashBoard";
 import { useStore } from "./store";
 import AdminEdit from "./pages/AdminEdit";
+import AppWrapper from "./components/AppWrapper";
 
 const PrivateRoute: FC<{
   component: React.FC;
@@ -22,16 +23,18 @@ const App = () => {
   return (
     <div className="px-4 max-w-screen-xl mx-auto">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route
-          path="/admin/:id"
-          element={<PrivateRoute component={AdminEdit} />}
-        />
-        <Route
-          path="/dashboard"
-          element={<PrivateRoute component={DashBoard} />}
-        />
+        <Route path="/" element={<AppWrapper />}>
+          <Route index element={<Home />} />
+          <Route path="admin" element={<Admin />} />
+          <Route
+            path="admin/:id"
+            element={<PrivateRoute component={AdminEdit} />}
+          />
+          <Route
+            path="dashboard"
+            element={<PrivateRoute component={DashBoard} />}
+          />
+        </Route>
       </Routes>
     </div>
   );
