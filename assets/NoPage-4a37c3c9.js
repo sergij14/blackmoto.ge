@@ -1,1 +1,0 @@
-import{a,r as s,c as e}from"./index-54232dbf.js";const r=()=>{const t=a();return s.useEffect(()=>{setTimeout(()=>{t("/")},3e3)},[]),e("div",{children:e("h4",{className:"section-title my-14 text-center",children:"404 Page Not Found"})})};export{r as default};
