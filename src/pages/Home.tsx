@@ -30,7 +30,7 @@ const Home = () => {
         <h4 className="section-title">Available Motos</h4>
         <div className="items">
           {items.map((item, idx) => (
-            <Item {...item} idx={idx} />
+            <Item {...item} key={`${item.id} + ${idx}`} />
           ))}
           {!items.length && <p>No Motos...</p>}
         </div>

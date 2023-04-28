@@ -3,19 +3,11 @@ import { Link } from "react-router-dom";
 import { useStore } from "../store";
 import { ItemWithId } from "../types";
 
-const Item = ({
-  title,
-  engine,
-  price,
-  id,
-  img,
-  tax,
-  idx,
-}: ItemWithId & { idx: number }) => {
+const Item = ({ title, engine, price, id, img, tax }: ItemWithId) => {
   const { user } = useStore();
 
   return (
-    <div className="item" key={`${id} + ${idx}`}>
+    <div className="item">
       {user ? (
         <Link to={"admin/" + id}>
           <img className="rounded-md" src={img} alt={title} />
