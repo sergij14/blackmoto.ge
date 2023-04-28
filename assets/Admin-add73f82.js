@@ -1,1 +1,0 @@
-import{u as t,h as s,F as r,j as a,I as n}from"./index-7703fe62.js";const d=()=>{const{user:e}=t();return s(r,{children:e&&a("div",{children:[s("h4",{className:"section-title",children:"Add new moto"}),s(n,{})]})})};export{d as default};
