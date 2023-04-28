@@ -31,7 +31,7 @@ const AdminEdit = () => {
   
   return (
     <div>
-      <h4 className="text-3xl font-black mb-4">Edit moto - {itemToEdit?.title}</h4>
+      <h4 className="section-title">Edit moto - {itemToEdit?.title}</h4>
 
       {itemToEdit ? <ItemForm itemId={id} /> : <Navigate to="/admin" />}
     </div>

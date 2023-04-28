@@ -26,7 +26,7 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col mt-12 md:mt-14 py-8">
-        <h4 className="text-3xl font-black mb-4">Available Motos</h4>
+        <h4 className="section-title">Available Motos</h4>
         <div className="items">
           {items.map(({ title, engine, price, id, img, tax }, idx) => (
             <div className="item" key={`${id} + ${idx}`}>

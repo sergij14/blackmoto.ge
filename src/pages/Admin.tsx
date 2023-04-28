@@ -9,7 +9,7 @@ const Admin = () => {
     <>
       {user && (
         <div>
-          <h4 className="text-3xl font-black mb-4">Add new moto</h4>
+          <h4 className="section-title">Add new moto</h4>
 
           <ItemForm />
         </div>
