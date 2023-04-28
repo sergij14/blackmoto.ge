@@ -38,7 +38,12 @@ const AppWrapper = () => {
   }, []);
 
   return (
-    <div className="px-8 max-w-screen-xl mx-auto">
+    <div className="relative px-8 max-w-screen-xl mx-auto">
+      <img
+        className="-z-10 absolute top-24 left-0 opacity-30 w-full h-full object-contain object-top"
+        alt=""
+        src="/rent-moto/assets/hero.svg"
+      />
       <header className="flex flex-col gap-4 items-center py-8 md:flex-row md:justify-between">
         <h2 className="text-3xl md:text-4xl font-black">
           <Link to="/">#Moto Rent</Link>

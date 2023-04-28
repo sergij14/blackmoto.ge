@@ -10,13 +10,7 @@ const Home = () => {
   const { items, user } = useStore();
   return (
     <>
-      <div className="relative flex flex-col justify-center items-center gap-40 md:gap-56 py-8">
-        <img
-          className="-z-10 absolute top-0 left-0 opacity-30 w-full h-full object-contain object-top"
-          alt=""
-          src="/rent-moto/assets/hero.svg"
-        />
-
+      <div className="flex flex-col justify-center items-center gap-40 md:gap-56 py-8">
         <h4 className="text-5xl md:text-[60px] font-black text-center">
           Rent Motos In Tbilisi
         </h4>
