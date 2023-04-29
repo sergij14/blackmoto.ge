@@ -3,6 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import ItemForm from "../components/ItemForm/ItemForm";
 import { ItemWithId } from "../types";
 import { getItem } from "../api/dbMethods";
+import Loader from "../components/Loader";
 
 const AdminEdit = () => {
   const { id } = useParams();
@@ -26,9 +27,9 @@ const AdminEdit = () => {
   }, [id]);
 
   if (!dataAvailable) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
-  
+
   return (
     <div>
       <h4 className="section-title">Edit moto - {itemToEdit?.title}</h4>

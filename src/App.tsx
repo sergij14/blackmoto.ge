@@ -4,6 +4,7 @@ import "./styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route } from "react-router-dom";
 import { useStore } from "./store";
+import Loader from "./components/Loader";
 
 const PrivateRoute: FC<{
   component: React.FC;
@@ -22,7 +23,7 @@ const AdminEdit = lazy(() => import("./pages/AdminEdit"));
 
 const App = () => {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<AppWrapper />}>
           <Route index element={<Home />} />
