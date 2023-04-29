@@ -9,8 +9,6 @@ const Admin = () => {
     <>
       {user && (
         <div>
-          <h4 className="section-title">Add new moto</h4>
-
           <ItemForm />
         </div>
       )}
