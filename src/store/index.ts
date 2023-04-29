@@ -1,7 +1,7 @@
 import { User } from "firebase/auth";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { Item, ItemWithId } from "../types";
+import { ItemWithId } from "../types";
 
 interface State {
   user: User | undefined;

@@ -25,16 +25,12 @@ const AdminEdit = () => {
       getItemToEdit(id);
     }
   }, [id]);
-
-  if (!dataAvailable) {
-    return <Loader />;
-  }
-
+  
   return (
     <div>
       <h4 className="section-title">Edit moto - {itemToEdit?.title}</h4>
 
-      {itemToEdit ? <ItemForm itemId={id} /> : <Navigate to="/admin" />}
+      <ItemForm itemId={id} />
     </div>
   );
 };

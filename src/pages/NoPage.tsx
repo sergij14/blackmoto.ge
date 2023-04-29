@@ -8,6 +8,10 @@ const NoPage = () => {
     const timeout = setTimeout(() => {
       navigate("/");
     }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (

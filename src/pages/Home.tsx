@@ -4,7 +4,6 @@ import {
   ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/solid";
 import { useStore } from "../store";
-import { Link } from "react-router-dom";
 import Item from "../components/Item";
 
 const Home = () => {

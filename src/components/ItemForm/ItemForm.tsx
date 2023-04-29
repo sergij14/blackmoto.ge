@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Item, itemFormSchema, ItemWithId } from "../../types";
+import { Item, itemFormSchema } from "../../types";
 import FormField from "./FormField";
 import { getItem, saveItem, updateItem } from "../../api/dbMethods";
 import { useNavigate } from "react-router-dom";

@@ -9,7 +9,7 @@ import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { userSignIn, userSignOut } from "../api/authMethods";
 
 const AppWrapper = () => {
-  const { setUser, setItems, user, items } = useStore();
+  const { setUser, setItems, user } = useStore();
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
