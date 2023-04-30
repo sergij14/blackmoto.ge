@@ -50,7 +50,7 @@ const Header = () => {
               </button>
             </div>
           ) : (
-            <button className="nav-btn" onClick={userSignIn}>
+            <button className="nav-btn w-max" onClick={userSignIn}>
               <ArrowRightOnRectangleIcon /> Sign In
             </button>
           )}
