@@ -3,12 +3,20 @@ import { Link } from "react-router-dom";
 import { useStore } from "../store";
 import { ItemWithId } from "../types";
 
-const Item = ({ title, engine, price, id, img, tax }: ItemWithId) => {
+const ItemCmp = ({
+  title,
+  engine,
+  price,
+  id,
+  img,
+  tax,
+  clickable = true,
+}: ItemWithId & { clickable?: boolean }) => {
   const { user } = useStore();
 
   return (
     <div className="item">
-      {user ? (
+      {user && clickable ? (
         <Link to={"admin/" + id}>
           <img className="rounded-md" src={img} alt={title} />
         </Link>
@@ -29,4 +37,4 @@ const Item = ({ title, engine, price, id, img, tax }: ItemWithId) => {
   );
 };
 
-export default Item;
+export default ItemCmp;

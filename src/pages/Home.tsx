@@ -4,7 +4,7 @@ import {
   ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/solid";
 import { useStore } from "../store";
-import Item from "../components/Item";
+import Item from "../components/ItemCmp";
 
 const Home = () => {
   const { items, user } = useStore();

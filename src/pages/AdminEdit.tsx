@@ -7,6 +7,7 @@ const AdminEdit = () => {
 
   return (
     <div>
+      <h4 className="section-title">Edit Moto</h4>
       <ItemForm itemId={id} />
     </div>
   );
