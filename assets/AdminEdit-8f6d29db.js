@@ -1,1 +1,0 @@
-import{d as m,c as r}from"./index-60b4174a.js";import{I as i}from"./ItemForm-18da0a89.js";import"./dbMethods-7ecf873d.js";const a=()=>{const{id:t}=m();return r("div",{children:r(i,{itemId:t})})};export{a as default};

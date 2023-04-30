@@ -1,1 +1,0 @@
-import{u as e,c as r,F as o}from"./index-60b4174a.js";import{I as s}from"./ItemForm-18da0a89.js";import"./dbMethods-7ecf873d.js";const n=()=>{const{user:t}=e();return r(o,{children:t&&r("div",{children:r(s,{})})})};export{n as default};
