@@ -35,16 +35,12 @@ const AppWrapper = () => {
   }, []);
 
   return (
-    <div className="relative px-8 max-w-screen-xl mx-auto h-full flex flex-col">
-      <img
-        className="-z-10 absolute top-24 left-0 opacity-30 w-full object-contain object-top"
-        alt=""
-        src="/rent-moto/assets/hero.svg"
-      />
+    <div className="app-wrapper">
+      <img className="app-bg" alt="" src="/rent-moto/assets/hero.svg" />
       <Header />
       <Outlet />
-      <footer className="mt-auto">
-        <div className="bg-gray-900 bg-opacity-30 rounded-md p-10 rounded-bl-none rounded-br-none text-center mt-14">
+      <footer className="mt-auto pb-8">
+        <div className="footer">
           &copy; {new Date().getFullYear()}, All rights reserved
         </div>
       </footer>
