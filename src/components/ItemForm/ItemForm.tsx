@@ -56,9 +56,11 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
 
   return (
     <>
-      <div className="max-w-sm mb-14">
-        <ItemCmp {...itemToEdit} clickable={false} />
-      </div>
+      {itemId && (
+        <div className="max-w-sm mb-14">
+          <ItemCmp {...itemToEdit} clickable={false} />
+        </div>
+      )}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex gap-2 flex-col max-w-xl"

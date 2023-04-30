@@ -7,6 +7,13 @@ import { createCollection, saveUser } from "../api/dbMethods";
 import { onSnapshot, query } from "firebase/firestore";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { userSignIn, userSignOut } from "../api/authMethods";
+import {
+  ArrowLeftOnRectangleIcon,
+  ArrowRightOnRectangleIcon,
+  ChatBubbleOvalLeftIcon,
+  HomeIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/solid";
 
 const AppWrapper = () => {
   const { setUser, setItems, user } = useStore();
@@ -48,8 +55,18 @@ const AppWrapper = () => {
         <h2 className="text-3xl md:text-4xl font-black">
           <Link to="/">#Moto Rent</Link>
         </h2>
-        <nav className="flex gap-2 flex-col sm:flex-row flex-wrap justify-center">
-          <button className="nav-btn">WhatsApp: +7(977)404-64-84</button>
+        <nav className="flex gap-2 flex-col items-center justify-center sm:flex-row flex-wrap">
+          <button className="nav-btn" onClick={() => navigate("/")}>
+            <HomeIcon />
+            Home
+          </button>
+          <button className="nav-btn" onClick={() => navigate("/admin")}>
+            <UserCircleIcon />
+            Admin
+          </button>
+          <button className="nav-btn">
+            <ChatBubbleOvalLeftIcon /> WhatsApp
+          </button>
         </nav>
       </header>
       {pathname.slice(1) === "admin" && (
@@ -63,12 +80,12 @@ const AppWrapper = () => {
                 {user.email}
               </div>
               <button className="nav-btn" onClick={() => userSignOut(navigate)}>
-                Sign Out
+                <ArrowLeftOnRectangleIcon /> Sign Out
               </button>
             </div>
           ) : (
             <button className="nav-btn" onClick={userSignIn}>
-              Sign In
+              <ArrowRightOnRectangleIcon /> Sign In
             </button>
           )}
         </>
