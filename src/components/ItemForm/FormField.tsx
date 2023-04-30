@@ -24,9 +24,9 @@ interface PropTypes {
 
 const FormField = ({ register, errors, label, fieldName, type }: PropTypes) => (
   <>
-    <label htmlFor={fieldName} className="text-lg font-bold mt-2">
+    {/* <label htmlFor={fieldName} className="text-lg font-bold mt-1">
       {label}
-    </label>
+    </label> */}
     {type === "textarea" ? (
       <textarea
         className="form-field min-h-[150px] max-h-[300px]"

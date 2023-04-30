@@ -55,15 +55,10 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
   };
 
   return (
-    <>
-      {itemId && (
-        <div className="max-w-sm mb-14">
-          <ItemCmp {...itemToEdit} clickable={false} />
-        </div>
-      )}
+    <div className="flex flex-col gap-8 md:flex-row">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex gap-2 flex-col max-w-xl"
+        className="flex gap-2 flex-col w-full md:w-7/12"
       >
         {Object.keys(formFields).map((fieldName, idx) => {
           const { label, type } = formFields[fieldName];
@@ -87,6 +82,11 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
           {itemId ? "Edit" : "Add"}
         </button>
       </form>
-    </>
+      {itemId && (
+        <div className="w-full md:w-5/12 pt-8 md:pt-0">
+          <ItemCmp {...itemToEdit} clickable={false} />
+        </div>
+      )}
+    </div>
   );
 }

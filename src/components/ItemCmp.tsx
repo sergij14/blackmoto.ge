@@ -21,7 +21,7 @@ const ItemCmp = ({
           <img className="rounded-md" src={img} alt={title} />
         </Link>
       ) : (
-        <img className="rounded-md" src={img} alt={title} />
+        <img className="rounded-md max-w-[350px]" src={img} alt={title} />
       )}
       <h4 className="text-xl text-white font-bold my-2">{title}</h4>
       <p>
