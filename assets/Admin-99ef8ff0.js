@@ -1,0 +1,1 @@
+import{u as t,c as r,F as e,j as o}from"./index-81bb4ce1.js";import{I as i}from"./ItemForm-b898bab3.js";import"./dbMethods-1503e8a8.js";import"./ItemCmp-e7c56aba.js";const d=()=>{const{user:s}=t();return r(e,{children:s&&o("div",{children:[r("h4",{className:"section-title",children:"Add Moto"}),r(i,{})]})})};export{d as default};
