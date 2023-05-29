@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { useStore } from "./store";
 import Loader from "./components/Loader";
 
-const PrivateRoute: FC<{
+const PrivateComponent: FC<{
   component: React.FC;
 }> = ({ component: Component }) => {
   const { user } = useStore();
@@ -30,7 +30,7 @@ const App = () => {
           <Route path="admin" element={<Admin />} />
           <Route
             path="admin/:id"
-            element={<PrivateRoute component={AdminEdit} />}
+            element={<PrivateComponent component={AdminEdit} />}
           />
           <Route path="*" element={<NoPage />} />
         </Route>
