@@ -45,7 +45,7 @@ const AppWrapper = () => {
 
   return (
     <div className="app-wrapper">
-      <img className="app-bg" alt="" src="/rent-moto/assets/hero.svg" />
+      <img className="app-bg" alt="" src="/assets/hero.svg" />
       <Header />
       <Outlet />
       <footer className="mt-auto pb-8">
