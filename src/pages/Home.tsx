@@ -12,7 +12,7 @@ const Home = () => {
     <>
       <div className="flex flex-col justify-center items-center gap-40 md:gap-56 py-8">
         <h4 className="text-5xl md:text-[60px] font-black text-center">
-          Rent Motos In Tbilisi
+          Rent Motos In Tbilisi!
         </h4>
         <div className="flex gap-2 flex-wrap justify-center">
           <button className="hero-btn">
