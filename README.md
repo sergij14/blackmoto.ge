@@ -1,1 +1,1 @@
-# moto-rent
+# moto-rental
