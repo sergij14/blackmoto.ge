@@ -5,14 +5,17 @@ import {
 } from "@heroicons/react/24/solid";
 import { useStore } from "../store";
 import Item from "../components/ItemCmp";
+import { useLocalize } from "../localization";
 
 const Home = () => {
   const { items, user } = useStore();
+  const { localize } = useLocalize();
+
   return (
     <>
       <div className="flex flex-col justify-center items-center gap-40 md:gap-56 py-8">
         <h4 className="text-5xl md:text-[60px] font-black text-center">
-          Rent Motos In Tbilisi!
+          {localize("home.heading")}
         </h4>
         <div className="flex gap-2 flex-wrap justify-center">
           <button className="hero-btn">
@@ -25,7 +28,7 @@ const Home = () => {
         </div>
       </div>
 
-      {new Array(4).fill('').map((_, i) => (
+      {new Array(4).fill("").map((_, i) => (
         <div key={i}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
           eros facilisis, sagittis ligula ac, volutpat neque. Aliquam erat

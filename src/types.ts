@@ -14,3 +14,5 @@ export const itemFormSchema = yup
 
 export type Item = yup.InferType<typeof itemFormSchema>;
 export type ItemWithId = Item & { id: string };
+
+export type Lang = 'ru' | 'ge'
