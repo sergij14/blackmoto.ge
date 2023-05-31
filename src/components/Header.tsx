@@ -1,6 +1,5 @@
 import React from "react";
-import { useStore } from "../store";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ChatBubbleOvalLeftIcon,
   HomeIcon,
@@ -9,11 +8,9 @@ import {
 
 const Header = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
-  const { user } = useStore();
 
   return (
-    <header className="sticky top-0 w-full bg-black bg-opacity-90 z-50">
+    <header className="fixed top-0 w-full bg-black bg-opacity-90 z-50">
       <div className="max-w-screen-xl px-8 mx-auto">
         <div className="flex flex-col gap-4 items-center py-8 md:flex-row md:justify-between">
           <h2 className="text-3xl md:text-4xl font-black">
