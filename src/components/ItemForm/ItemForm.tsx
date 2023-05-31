@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Item, itemFormSchema, ItemWithId } from "../../types";
 import FormField from "./FormField";
-import { getItem, saveItem, updateItem } from "../../api/dbMethods";
+import { saveItem, updateItem } from "../../api/dbMethods";
 import { useNavigate } from "react-router-dom";
 import ItemCmp from "../ItemCmp";
 
@@ -26,26 +26,22 @@ const formFields: { [key: string]: { label: string; type?: string } } = {
   },
 };
 
-export default function ItemForm({ itemId }: { itemId?: string }) {
+export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors, isDirty },
   } = useForm<Item>({
     resolver: yupResolver(itemFormSchema),
-    defaultValues: async () =>
-      (await getItem({ col: "motos", key: itemId! })) as Item,
+    defaultValues: itemToEdit,
   });
-
-  const itemToEdit = getValues() as ItemWithId;
 
   const onSubmit = async (data: Item) => {
     if (isDirty) {
-      if (itemId) {
-        await updateItem<Item>({ col: "motos", data, key: itemId });
+      if (itemToEdit) {
+        await updateItem<Item>({ col: "motos", data, key: itemToEdit.id });
         navigate("/");
       } else {
         await saveItem<Item>({ col: "motos", data });
@@ -79,10 +75,10 @@ export default function ItemForm({ itemId }: { itemId?: string }) {
           disabled={!isDirty}
           type="submit"
         >
-          {itemId ? "Edit" : "Add"}
+          {itemToEdit ? "Edit" : "Add"}
         </button>
       </form>
-      {itemId && (
+      {itemToEdit && (
         <div className="w-full md:w-5/12 pt-8 md:pt-0">
           <ItemCmp {...itemToEdit} clickable={false} />
         </div>
