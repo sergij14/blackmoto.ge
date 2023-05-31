@@ -48,7 +48,9 @@ const AppWrapper = () => {
       <Header />
       <div className="container">
         <img className="app-bg" alt="" src="/assets/hero.svg" />
-        <Outlet />
+        <div className="mt-8">
+          <Outlet />
+        </div>
         <footer className="mt-auto pb-8">
           <div className="footer">
             &copy; {new Date().getFullYear()}, All rights reserved

@@ -28,7 +28,7 @@ const LanguageSwitcher = () => {
             }`}
           >
             <img className="w-5" src={`/assets/${code}.svg`} />
-            GE
+            {label}
           </button>
         ))}
       </div>
