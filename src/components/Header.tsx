@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import {
   Bars3Icon,
@@ -28,11 +28,27 @@ const Header = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   const [headerRef, headerBounds] = useMeasure();
+  const [headerCn, setHeaderCn] = useState("static");
+
+  const isSticky = (ev: Event) => {
+    const scrollTop = window.scrollY;
+
+    scrollTop >= headerBounds.height
+      ? setHeaderCn("fixed")
+      : setHeaderCn("static");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
+    };
+  }, [headerBounds.height]);
 
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 w-full bg-black bg-opacity-90 z-50"
+      className={`${headerCn} top-0 w-full bg-black bg-opacity-90 z-50`}
     >
       <div className="max-w-screen-xl px-8 mx-auto">
         <div className="flex flex-col gap-4 items-center py-8 sm:flex-row sm:justify-between relative">
