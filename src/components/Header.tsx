@@ -52,7 +52,7 @@ const Header = () => {
       ref={headerRef}
       className={`${headerCn} top-0 w-full bg-black bg-opacity-90 z-50`}
     >
-      <div className="fixed bottom-0 mx-8 my-4 left-0">
+      <div className="fixed bottom-0 m-8 left-0">
         <div className="flex gap-2 items-center">
           <button
             onClick={() => setLang("ru")}
