@@ -28,10 +28,13 @@
     @apply bg-gray-900 bg-opacity-30 rounded-md p-10 text-center mt-14;
   }
   .app-wrapper {
-    @apply relative px-8 max-w-screen-xl mx-auto h-full flex flex-col;
+    @apply relative h-full flex flex-col;
+  }
+  .container {
+    @apply px-8 max-w-screen-xl mx-auto;
   }
   .app-bg {
-    @apply -z-10 absolute top-24 left-0 opacity-30 w-full object-contain object-top;
+    @apply -z-10 fixed top-24 left-0 opacity-30 w-full object-contain object-top;
   }
 }
 

@@ -16,47 +16,52 @@ const Header = () => {
   const { user } = useStore();
 
   return (
-    <>
-      <header className="flex flex-col gap-4 items-center py-8 md:flex-row md:justify-between">
-        <h2 className="text-3xl md:text-4xl font-black">
-          <Link to="/">#Moto Rent</Link>
-        </h2>
-        <nav className="flex gap-2 flex-col items-center justify-center sm:flex-row flex-wrap">
-          <button className="nav-btn" onClick={() => navigate("/")}>
-            <HomeIcon />
-            Home
-          </button>
-          <button className="nav-btn" onClick={() => navigate("/admin")}>
-            <UserCircleIcon />
-            Admin
-          </button>
-          <button className="nav-btn">
-            <ChatBubbleOvalLeftIcon /> WhatsApp
-          </button>
-        </nav>
-      </header>
-      {pathname.slice(1) === "admin" && (
-        <>
-          {user ? (
-            <div className="flex flex-col gap-4 items-center pb-8 md:flex-row md:justify-between">
-              <div className="flex gap-2 items-center">
-                {user.photoURL && (
-                  <img src={user.photoURL} className="w-8 rounded-full" />
-                )}
-                {user.email}
-              </div>
-              <button className="nav-btn" onClick={() => userSignOut(navigate)}>
-                <ArrowLeftOnRectangleIcon /> Sign Out
-              </button>
-            </div>
-          ) : (
-            <button className="nav-btn w-max" onClick={userSignIn}>
-              <ArrowRightOnRectangleIcon /> Sign In
+    <header className="sticky top-0 w-full bg-black bg-opacity-90 z-50">
+      <div className="max-w-screen-xl px-8 mx-auto ">
+        <div className="flex flex-col gap-4 items-center py-8 md:flex-row md:justify-between">
+          <h2 className="text-3xl md:text-4xl font-black">
+            <Link to="/">#Moto Rent</Link>
+          </h2>
+          <nav className="flex gap-2 flex-col items-center justify-center sm:flex-row flex-wrap">
+            <button className="nav-btn" onClick={() => navigate("/")}>
+              <HomeIcon />
+              Home
             </button>
-          )}
-        </>
-      )}
-    </>
+            <button className="nav-btn" onClick={() => navigate("/admin")}>
+              <UserCircleIcon />
+              Admin
+            </button>
+            <button className="nav-btn">
+              <ChatBubbleOvalLeftIcon /> WhatsApp
+            </button>
+          </nav>
+        </div>
+        {pathname.slice(1) === "admin" && (
+          <>
+            {user ? (
+              <div className="flex flex-col gap-4 items-center pb-8 md:flex-row md:justify-between">
+                <div className="flex gap-2 items-center">
+                  {user.photoURL && (
+                    <img src={user.photoURL} className="w-8 rounded-full" />
+                  )}
+                  {user.email}
+                </div>
+                <button
+                  className="nav-btn"
+                  onClick={() => userSignOut(navigate)}
+                >
+                  <ArrowLeftOnRectangleIcon /> Sign Out
+                </button>
+              </div>
+            ) : (
+              <button className="nav-btn w-max" onClick={userSignIn}>
+                <ArrowRightOnRectangleIcon /> Sign In
+              </button>
+            )}
+          </>
+        )}
+      </div>
+    </header>
   );
 };
 

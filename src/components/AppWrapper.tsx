@@ -45,14 +45,16 @@ const AppWrapper = () => {
 
   return (
     <div className="app-wrapper">
-      <img className="app-bg" alt="" src="/assets/hero.svg" />
       <Header />
-      <Outlet />
-      <footer className="mt-auto pb-8">
-        <div className="footer">
-          &copy; {new Date().getFullYear()}, All rights reserved
-        </div>
-      </footer>
+      <div className="container">
+        <img className="app-bg" alt="" src="/assets/hero.svg" />
+        <Outlet />
+        <footer className="mt-auto pb-8">
+          <div className="footer">
+            &copy; {new Date().getFullYear()}, All rights reserved
+          </div>
+        </footer>
+      </div>
     </div>
   );
 };
