@@ -3,10 +3,10 @@ import { useStore } from "../store";
 import { Lang } from "../types";
 
 const langs: { label: string; code: Lang }[] = [
-  {
-    label: "GE",
-    code: "ge",
-  },
+  // {
+  //   label: "GE",
+  //   code: "ge",
+  // },
   {
     label: "RU",
     code: "ru",
