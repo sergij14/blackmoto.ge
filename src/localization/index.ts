@@ -12,10 +12,10 @@ export const getTranslations = (langCode: Lang) => {
 export const useLocalize = () => {
   const { lang } = useStore();
 
-  const localize = (phraseKey: string) => {
+  const t = (phraseKey: string) => {
     const langObj = getTranslations(lang);
     return langObj[phraseKey];
   };
 
-  return { localize };
+  return { t };
 };

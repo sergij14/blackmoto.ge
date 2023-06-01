@@ -4,19 +4,21 @@ import {
   ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/solid";
 import { useStore } from "../store";
+import parse from "html-react-parser";
 import Item from "../components/ItemCmp";
 import { useLocalize } from "../localization";
 
 const Home = () => {
   const { items, user } = useStore();
-  const { localize } = useLocalize();
+  const { t } = useLocalize();
 
   return (
     <>
       <div className="flex flex-col justify-center items-center gap-40 md:gap-56 py-8">
-        <h4 className="text-5xl md:text-[60px] font-black text-center">
-          {localize("home.heading")}
-        </h4>
+        <div>
+          <h2 className="text-3xl">{t("hero.slogan")}</h2>
+          <h4 className="text-center text-2xl">{parse(t("hero.text"))}</h4>
+        </div>
         <div className="flex gap-2 flex-wrap justify-center">
           <button className="hero-btn">
             <ChatBubbleOvalLeftIcon /> Whatsapp

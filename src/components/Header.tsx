@@ -4,6 +4,7 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import useMeasure from "react-use-measure";
 import Menu from "./Menu";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useLocalize } from "../localization";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -26,6 +27,8 @@ const Header = () => {
     };
   }, [headerBounds.height]);
 
+  const { t } = useLocalize();
+
   return (
     <header
       ref={headerRef}
@@ -34,13 +37,13 @@ const Header = () => {
       <LanguageSwitcher />
       <div className="max-w-screen-xl px-8 mx-auto">
         <div className="flex flex-col gap-4 items-center py-8 sm:flex-row sm:justify-between relative">
-          <h2 className="text-3xl md:text-4xl font-black">
+          <h2 className="text-3xl">
             <Link to="/">#Moto Rent</Link>
           </h2>
           <div className="md:hidden">
             <button className="nav-btn" onClick={() => setShowMenu(!showMenu)}>
               <Bars3Icon />
-              Menu
+
             </button>
           </div>
           <div className="hidden md:block">
