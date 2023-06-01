@@ -12,7 +12,7 @@ import Header from "./Header";
 const AUTHED_EMAILS = (import.meta.env.VITE_ADMIN_EMAILS as string).split(",");
 
 const AppWrapper = () => {
-  const { setUser, setItems } = useStore();
+  const { setUser, setItems, lang } = useStore();
 
   useEffect(() => {
     const unsubAuthState = onAuthStateChanged(auth, (user) => {
@@ -43,8 +43,10 @@ const AppWrapper = () => {
     };
   }, []);
 
+  const font =  lang === "ge" ? 'font-ge' : "font-ru";
+
   return (
-    <div className="app-wrapper">
+    <div className={`app-wrapper ${font}`}>
       <Header />
       <div className="container">
         <img className="app-bg" alt="" src="/assets/hero.svg" />
