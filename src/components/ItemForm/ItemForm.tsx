@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Item, itemFormSchema, ItemWithId } from "../../types";
 import FormField from "./FormField";
-import { saveItem, updateItem } from "../../api/dbMethods";
+import { deleteItem, saveItem, updateItem } from "../../api/dbMethods";
 import { useNavigate } from "react-router-dom";
 import ItemCmp from "../ItemCmp";
 import { useLocalize } from "../../localization";
@@ -58,6 +58,13 @@ export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
     }
   };
 
+  const onDelete = async () => {
+    if (itemToEdit) {
+      await deleteItem<Item>({ col: "motos", key: itemToEdit.id });
+      navigate("/");
+    }
+  };
+
   return (
     <div className="flex flex-col gap-8 md:flex-row">
       <form
@@ -89,6 +96,9 @@ export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
       {itemToEdit && (
         <div className="w-full md:w-5/12 pt-8 md:pt-0">
           <ItemCmp {...itemToEdit} clickable={false} />
+          <button className="mt-4 nav-btn" onClick={onDelete}>
+            Remove
+          </button>
         </div>
       )}
     </div>

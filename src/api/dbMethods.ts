@@ -3,6 +3,7 @@ import { User } from "firebase/auth";
 import {
   collection,
   CollectionReference,
+  deleteDoc,
   doc,
   DocumentData,
   getDoc,
@@ -81,6 +82,22 @@ export const getItem = async <T>({
     if (docSnap.exists()) {
       return docSnap.data();
     }
+  } catch (err: any) {
+    toast.error(err.mesage);
+  }
+};
+
+export const deleteItem = async <T>({
+  col,
+  key,
+}: {
+  col: string;
+  key: string;
+}) => {
+  try {
+    const dbCol = createCollection<T>(col);
+    const docRef = doc(dbCol, key);
+    await deleteDoc(docRef);
   } catch (err: any) {
     toast.error(err.mesage);
   }
