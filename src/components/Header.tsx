@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import useMeasure from "react-use-measure";
 import Menu from "./Menu";
-import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocalize } from "../localization";
 import { useStore } from "../store";
 
@@ -37,9 +36,8 @@ const Header = () => {
       ref={headerRef}
       className={`${headerCn} top-0 w-full bg-back-secondary bg-opacity-90 z-50`}
     >
-      <LanguageSwitcher />
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex flex-col gap-4 items-center py-8 relative sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-4 flex-wrap items-center py-8 relative sm:flex-row sm:justify-between">
           <h2 className="text-3xl text-primary">
             <Link to="/">#BlackMoto.GE</Link>
           </h2>

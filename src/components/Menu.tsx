@@ -2,6 +2,7 @@ import React from "react";
 import { NavigateFunction } from "react-router-dom";
 import { useLocalize } from "../localization";
 import { useStore } from "../store";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Menu = ({ navigate }: { navigate: NavigateFunction }) => {
   const { t } = useLocalize();
@@ -38,6 +39,7 @@ const Menu = ({ navigate }: { navigate: NavigateFunction }) => {
       <button onClick={() => handleScroll("contact")} className="nav-btn">
         {t("nav.menu_4")}
       </button>
+      <LanguageSwitcher />
     </div>
   );
 };

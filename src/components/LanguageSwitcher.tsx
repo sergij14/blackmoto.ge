@@ -17,13 +17,13 @@ const LanguageSwitcher = () => {
   const { setLang, lang } = useStore();
 
   return (
-    <div className="fixed bottom-0 m-8 left-0">
-      <div className="flex gap-2 items-center">
+
+      <>
         {langs.map(({ code, label }) => (
           <button
             key={code}
             onClick={() => setLang(code)}
-            className={`nav-btn px-3 py-2 gap-2 bg-opacity-100 ${
+            className={`nav-btn bg-opacity-100 ${
               code === lang ? "opacity-100" : "opacity-70"
             }`}
           >
@@ -31,8 +31,8 @@ const LanguageSwitcher = () => {
             {label}
           </button>
         ))}
-      </div>
-    </div>
+      </>
+
   );
 };
 
