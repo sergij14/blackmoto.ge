@@ -14,10 +14,14 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center gap-20 py-8">
+      <div className="flex flex-col gap-20 py-8">
         <div className="text-center flex flex-col gap-2">
-          <h2 className="text-4xl">{t("hero.slogan")}</h2>
-          <h4 className="text-center text-3xl">{parse(t("hero.text"))}</h4>
+          <h2 className="text-4xl leading-[50px] max-w-md mx-auto">
+            {parse(t("hero.slogan"))}
+          </h2>
+          <h4 className="text-center text-3xl leading-[45px] max-w-md mx-auto">
+            {parse(t("hero.text"))}
+          </h4>
           <div className="flex gap-2 flex-wrap justify-center mt-4">
             <button className="hero-btn">
               <img src="/assets/facebook.svg" className="w-6" />
@@ -30,8 +34,9 @@ const Home = () => {
             </button>
           </div>
           <button className="hero-btn self-center mt-4">
-          <img src="/assets/call.svg" className="w-6" />
-            +995 550 00 40 45</button>
+            <img src="/assets/call.svg" className="w-6" />
+            +995 550 00 40 45
+          </button>
         </div>
 
         <div id="section_about">
@@ -49,7 +54,10 @@ const Home = () => {
           <p className="text-center text-2xl mt-8">{t("about.text_2")}</p>
         </div>
 
-        <div className="flex flex-col mt-12 md:mt-14 py-8" id="section_motopark">
+        <div
+          className="flex flex-col mt-12 md:mt-14 py-8"
+          id="section_motopark"
+        >
           <h4 className="section-title">{t("nav.menu_2")}</h4>
           <div className="items">
             {items.map((item, idx) => (

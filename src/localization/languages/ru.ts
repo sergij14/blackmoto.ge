@@ -6,7 +6,7 @@ export default {
 
   "hero.text":
     "СЕРВИС АРЕНДЫ МОТОЦИКЛОВ С АТМОСФЕРОЙ <span class='text-primary'>РОК-Н-РОЛЛА</span>",
-  "hero.slogan": "DRIVE FREEDOM ROCK’N’ROLL",
+  "hero.slogan": `DRIVE <br/> FREEDOM <br/> ROCK’N’ROLL`,
 
   "about.text":
     "<span class='text-primary'>BlackMoto.GE</span> - сервис аренды мотоциклов в Тбилиси, Грузия. Мы вдохновлены одним понятием - свобода. А свобода для нас ассоциируется с тремя словами - Грузия, мотоцикл, рок-н-ролл. Если тебе близка наша философия, если ты хочешь чувствовать эту атмосферу - мы готовы тебе помочь.",
