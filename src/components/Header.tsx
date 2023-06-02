@@ -37,8 +37,8 @@ const Header = () => {
       <LanguageSwitcher />
       <div className="max-w-screen-xl px-8 mx-auto">
         <div className="flex flex-col gap-4 items-center py-8 sm:flex-row sm:justify-between relative">
-          <h2 className="text-3xl">
-            <Link to="/">#Moto Rent</Link>
+          <h2 className="text-3xl text-primary">
+            <Link to="/">#BlackMoto.GE</Link>
           </h2>
           <div className="md:hidden">
             <button className="nav-btn" onClick={() => setShowMenu(!showMenu)}>

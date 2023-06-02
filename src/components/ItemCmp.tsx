@@ -2,17 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "../store";
 import { ItemWithId } from "../types";
+import { useLocalize } from "../localization";
 
 const ItemCmp = ({
   title,
-  engine,
-  price,
+  unit,
+  year,
+  power,
   id,
   img,
-  tax,
+  engine,
   clickable = true,
 }: ItemWithId & { clickable?: boolean }) => {
   const { user } = useStore();
+  const { t } = useLocalize();
 
   return (
     <div className="item">
@@ -25,13 +28,16 @@ const ItemCmp = ({
       )}
       <h4 className="text-xl text-white font-bold my-2">{title}</h4>
       <p>
-        <b>Engine:</b> {engine}
+        <b>{t("form.field.year")}:</b> {year}
       </p>
       <p>
-        <b>Price:</b> {price}
+        <b>{t("form.field.engine")}:</b> {engine}
       </p>
       <p>
-        <b>Tax:</b> {tax}
+        <b>{t("form.field.power")}:</b> {power}
+      </p>
+      <p>
+        <b>{t("form.field.unit")}:</b> {unit}
       </p>
     </div>
   );

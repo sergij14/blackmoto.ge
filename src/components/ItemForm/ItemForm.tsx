@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Item, itemFormSchema, ItemWithId } from "../../types";
@@ -6,28 +6,36 @@ import FormField from "./FormField";
 import { saveItem, updateItem } from "../../api/dbMethods";
 import { useNavigate } from "react-router-dom";
 import ItemCmp from "../ItemCmp";
-
-const formFields: { [key: string]: { label: string; type?: string } } = {
-  title: {
-    label: "Title",
-  },
-  img: {
-    label: "Image",
-  },
-  price: {
-    type: "textarea",
-    label: "Prices",
-  },
-  tax: {
-    label: "Tax",
-  },
-  engine: {
-    label: "Engine",
-  },
-};
+import { useLocalize } from "../../localization";
 
 export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
   const navigate = useNavigate();
+  const { t } = useLocalize();
+
+  const formFields: { [key: string]: { label: string; type?: string } } =
+    useMemo(
+      () => ({
+        title: {
+          label: t("form.field.title"),
+        },
+        year: {
+          label: t("form.field.year"),
+        },
+        img: {
+          label: t("form.field.img"),
+        },
+        engine: {
+          label: t("form.field.engine"),
+        },
+        power: {
+          label: t("form.field.power"),
+        },
+        unit: {
+          label: t("form.field.unit"),
+        },
+      }),
+      [t]
+    );
 
   const {
     register,

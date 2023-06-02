@@ -2,21 +2,18 @@ import React from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Item } from "../../types";
 
+type Fields = {
+  title: string;
+  img: string;
+  engine: string;
+  power: string;
+  unit: string;
+  year: string;
+};
+
 interface PropTypes {
-  register: UseFormRegister<{
-    title: string;
-    img: string;
-    engine: string;
-    price: string;
-    tax: string;
-  }>;
-  errors: FieldErrors<{
-    img: string;
-    title: string;
-    engine: string;
-    price: string;
-    tax: string;
-  }>;
+  register: UseFormRegister<Fields>;
+  errors: FieldErrors<Fields>;
   fieldName: keyof Item;
   label: string;
   type?: string;

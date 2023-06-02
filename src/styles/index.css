@@ -43,7 +43,7 @@ a:hover {
     @apply whitespace-nowrap flex gap-3 items-center bg-gray-800 bg-opacity-70 hover:text-white hover:bg-opacity-80 rounded-md px-6 py-3 text-lg;
   }
   .hero-btn {
-    @apply flex gap-3 items-center bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md px-6 py-3 text-lg;
+    @apply flex gap-3 items-center bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md px-4 py-2 text-lg;
   }
   .items {
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4;

@@ -8,6 +8,7 @@ import { ItemWithId } from "../types";
 import { createCollection, saveUser } from "../api/dbMethods";
 import { onSnapshot, query } from "firebase/firestore";
 import Header from "./Header";
+import { useLocalize } from "../localization";
 
 const AUTHED_EMAILS = (import.meta.env.VITE_ADMIN_EMAILS as string).split(",");
 
@@ -44,6 +45,7 @@ const AppWrapper = () => {
   }, []);
 
   const font =  lang === "ge" ? 'font-ge' : "font-ru";
+  const {t} = useLocalize()
 
   return (
     <div className={`app-wrapper ${font}`}>
@@ -55,7 +57,7 @@ const AppWrapper = () => {
         </div>
         <footer className="mt-auto pb-8">
           <div className="footer">
-            &copy; {new Date().getFullYear()}, All rights reserved
+            &copy; {new Date().getFullYear()}, {t("terms.copyright")}
           </div>
         </footer>
       </div>

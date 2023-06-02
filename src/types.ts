@@ -7,8 +7,9 @@ export const itemFormSchema = yup
     title: yup.string().required(),
     img: yup.string().required(),
     engine: yup.string().required(),
-    price: yup.string().required(),
-    tax: yup.string().required(),
+    power: yup.string().required(),
+    unit: yup.string().required(),
+    year: yup.string().required(),
   })
   .required();
 
