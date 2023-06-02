@@ -27,7 +27,7 @@ img {
 }
 
 a:hover {
-  @apply text-white;
+  @apply text-primary-light;
 }
 
 .font-ge {

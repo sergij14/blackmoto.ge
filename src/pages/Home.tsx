@@ -34,7 +34,7 @@ const Home = () => {
             +995 550 00 40 45</button>
         </div>
 
-        <div>
+        <div id="section_about">
           <h4 className="section-title">{t("nav.menu_1")}</h4>
           <div className="flex flex-col md:flex-row gap-4">
             <p className="text-2xl w-full md:w-7/12 lg:w-8/12">
@@ -49,7 +49,7 @@ const Home = () => {
           <p className="text-center text-2xl mt-8">{t("about.text_2")}</p>
         </div>
 
-        <div className="flex flex-col mt-12 md:mt-14 py-8">
+        <div className="flex flex-col mt-12 md:mt-14 py-8" id="section_motopark">
           <h4 className="section-title">{t("nav.menu_2")}</h4>
           <div className="items">
             {items.map((item, idx) => (
@@ -62,12 +62,12 @@ const Home = () => {
           </p>
         </div>
 
-        <div>
+        <div id="section_terms">
           <h4 className="section-title">{t("nav.menu_3")}</h4>
           <p className="text-2xl mt-12 leading-10">{parse(t("terms.text"))}</p>
         </div>
 
-        <div>
+        <div id="section_contact">
           <h4 className="section-title">{t("nav.menu_4")}</h4>
           <div className="flex flex-col md:flex-row gap-4">
             <p className="text-2xl w-full md:w-5/12">
