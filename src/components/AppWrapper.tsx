@@ -56,7 +56,7 @@ const AppWrapper = () => {
           <Outlet />
         </div>
         <footer className="mt-auto pb-8">
-          <div className="footer">
+          <div className="footer text-lg md:text-xl">
             &copy; {new Date().getFullYear()}, {t("terms.copyright")}
           </div>
         </footer>

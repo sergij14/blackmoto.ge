@@ -17,12 +17,12 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-20 py-8">
+      <div className="flex flex-col gap-14 md:gap-20 py-8">
         <div className="text-center flex flex-col gap-2">
-          <h2 className="text-4xl leading-[50px] max-w-md mx-auto">
+          <h2 className="text-3xl md:text-4xl leading-[50px] max-w-md mx-auto">
             {parse(t("hero.slogan"))}
           </h2>
-          <h4 className="text-center text-3xl leading-[45px] max-w-md mx-auto">
+          <h4 className="text-center text-2xl md:text-3xl leading-[45px] max-w-md mx-auto">
             {parse(t("hero.text"))}
           </h4>
           <div className="flex gap-2 flex-wrap justify-center mt-4">
@@ -52,16 +52,16 @@ const Home = () => {
                 "linear-gradient(270deg, rgba(61,67,67,1) 0%, rgba(28,30,29,1) 100%)",
             }}
           >
-            <p className="text-2xl w-full md:w-7/12 lg:w-8/12">
+            <p className="text-xl md:text-2xl w-full md:w-7/12 lg:w-8/12">
               {parse(t("about.text"))}
             </p>
             <img
               src="/assets/about.img.jpg"
-              className="w-full md:w-5/12 lg:w-4/12 max-h-[440px] rounded-md h-full object-cover object-bottom"
+              className="w-full md:w-5/12 lg:w-4/12 max-h-[340px] rounded-md h-full object-cover object-center"
               alt=""
             />
           </div>
-          <p className="text-center text-2xl mt-8">{t("about.text_2")}</p>
+          <p className="text-center text-xl md:text-2xl mt-8">{t("about.text_2")}</p>
         </div>
 
         <div
@@ -75,20 +75,20 @@ const Home = () => {
             ))}
             {!items.length && <p>No Motos...</p>}
           </div>
-          <p className="text-center text-2xl mt-12">
+          <p className="text-center text-xl md:text-2xl mt-12">
             {parse(t("motopark.text"))}
           </p>
         </div>
 
         <div id="section_terms">
           <h4 className="section-title">{t("nav.menu_3")}</h4>
-          <p className="text-2xl mt-12 leading-10">{parse(t("terms.text"))}</p>
+          <p className="text-xl md:text-2xl mt-12">{parse(t("terms.text"))}</p>
         </div>
 
         <div id="section_contact">
           <h4 className="section-title">{t("nav.menu_4")}</h4>
           <div className="flex flex-col md:flex-row gap-4">
-            <p className="text-2xl w-full md:w-5/12">
+            <p className="text-xl md:text-2xl w-full md:w-5/12">
               {parse(t("contact.text"))}
             </p>
             <iframe
