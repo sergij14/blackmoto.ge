@@ -49,7 +49,7 @@ a:hover {
     @apply absolute left-1/2 sm:left-[initial] sm:right-0 sm:transform-none transform -translate-x-1/2 md:hidden;
   }
   .vertical-nav-inner {
-    @apply bg-back-secondary bg-opacity-90 rounded-md p-4;
+    @apply bg-back-secondary bg-opacity-90 rounded-md;
   }
   .vertical-nav-inner:after {
     @apply absolute z-20 left-1/2 transform -translate-x-1/2 -top-3 border-r-transparent border-t-transparent border-l-transparent border-back-secondary border-[6px] border-solid block w-0 h-0;

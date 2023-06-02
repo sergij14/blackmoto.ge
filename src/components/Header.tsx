@@ -9,7 +9,6 @@ import { useStore } from "../store";
 const Header = () => {
   const navigate = useNavigate();
   const { setHeaderHeight } = useStore();
-  const [showMenu, setShowMenu] = useState(false);
   const [headerRef, headerBounds] = useMeasure();
   const [headerCn, setHeaderCn] = useState("static");
 
@@ -41,26 +40,23 @@ const Header = () => {
           <h2 className="text-3xl text-primary">
             <Link to="/">#BlackMoto.GE</Link>
           </h2>
-          <div className="md:hidden">
-            <button className="nav-btn" onClick={() => setShowMenu(!showMenu)}>
+          <div data-menu-trigger="true" className="md:hidden">
+            <button className="nav-btn">
               <Bars3Icon />
             </button>
           </div>
           <div className="hidden md:block">
             <Menu navigate={navigate} />
           </div>
-          {showMenu && (
-            <div
-              className="vertical-nav"
-              style={{
-                top: headerBounds.height + 20,
-              }}
-            >
-              <div className="vertical-nav-inner">
-                <Menu navigate={navigate} />
-              </div>
-            </div>
-          )}
+
+          <div
+            className="vertical-nav"
+            style={{
+              top: headerBounds.height + 20,
+            }}
+          >
+            <Menu isBurgerMenu navigate={navigate} />
+          </div>
         </div>
       </div>
     </header>
