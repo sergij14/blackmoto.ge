@@ -20,7 +20,7 @@ const ItemCmp = ({
   return (
     <div className="item">
       {user && clickable ? (
-        <Link to={"admin/" + id}>
+        <Link to={"/admin/" + id}>
           <img className="rounded-md" src={img} alt={title} />
         </Link>
       ) : (
