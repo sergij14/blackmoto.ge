@@ -10,6 +10,8 @@ interface State {
   setItems: (items: ItemWithId[]) => void;
   lang: Lang;
   setLang: (lang: Lang) => void;
+  headerHeight: number | undefined;
+  setHeaderHeight: (height: number) => void;
 }
 
 export const useStore = create<State>()(
@@ -26,6 +28,10 @@ export const useStore = create<State>()(
       lang: "ru",
       setLang(lang) {
         set(() => ({ lang: lang }));
+      },
+      headerHeight: undefined,
+      setHeaderHeight(height) {
+        set(() => ({ headerHeight: height }));
       },
     }),
     {

@@ -1,16 +1,25 @@
 import React from "react";
 import { NavigateFunction } from "react-router-dom";
 import { useLocalize } from "../localization";
+import { useStore } from "../store";
 
 const Menu = ({ navigate }: { navigate: NavigateFunction }) => {
   const { t } = useLocalize();
+  const { headerHeight } = useStore();
 
   const handleScroll = (id: string) => {
     const element = document.getElementById("section_" + id);
 
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    } else {
+    if (element && headerHeight) {
+      const elementPosition = element.offsetTop;
+
+      window.scrollTo({
+        top: elementPosition - (headerHeight + 120),
+        behavior: "smooth",
+      });
+    }
+
+    if (!element) {
       navigate("/");
     }
   };

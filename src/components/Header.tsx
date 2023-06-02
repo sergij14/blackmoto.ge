@@ -5,9 +5,11 @@ import useMeasure from "react-use-measure";
 import Menu from "./Menu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocalize } from "../localization";
+import { useStore } from "../store";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { setHeaderHeight } = useStore();
   const [showMenu, setShowMenu] = useState(false);
   const [headerRef, headerBounds] = useMeasure();
   const [headerCn, setHeaderCn] = useState("static");
@@ -21,6 +23,7 @@ const Header = () => {
   };
 
   useEffect(() => {
+    setHeaderHeight(headerBounds.height);
     window.addEventListener("scroll", isSticky);
     return () => {
       window.removeEventListener("scroll", isSticky);
@@ -43,7 +46,6 @@ const Header = () => {
           <div className="md:hidden">
             <button className="nav-btn" onClick={() => setShowMenu(!showMenu)}>
               <Bars3Icon />
-
             </button>
           </div>
           <div className="hidden md:block">
