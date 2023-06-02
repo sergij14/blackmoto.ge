@@ -40,10 +40,20 @@ a:hover {
 
 @layer components {
   .nav-btn {
-    @apply whitespace-nowrap flex gap-3 items-center bg-gray-800 bg-opacity-70 hover:text-white hover:bg-opacity-80 rounded-md px-6 py-3 text-lg;
+    @apply whitespace-nowrap flex gap-3 items-center bg-gray-800 bg-opacity-70 hover:text-white hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
   }
   .hero-btn {
     @apply flex gap-3 items-center bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md px-4 py-2 text-lg;
+  }
+  .vertical-nav {
+    @apply absolute left-1/2 sm:left-[initial] sm:right-0 sm:transform-none transform -translate-x-1/2 md:hidden;
+  }
+  .vertical-nav-inner {
+    @apply bg-back-secondary bg-opacity-90 rounded-md p-4;
+  }
+  .vertical-nav-inner:after {
+    @apply absolute z-20 left-1/2 transform -translate-x-1/2 -top-3 border-r-transparent border-t-transparent border-l-transparent border-back-secondary border-[6px] border-solid block w-0 h-0;
+    content: " ";
   }
   .items {
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4;

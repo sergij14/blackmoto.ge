@@ -35,11 +35,11 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`${headerCn} top-0 w-full bg-[#050605] bg-opacity-90 z-50`}
+      className={`${headerCn} top-0 w-full bg-back-secondary bg-opacity-90 z-50`}
     >
       <LanguageSwitcher />
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex flex-col gap-4 items-center py-8 sm:flex-row sm:justify-between relative">
+        <div className="flex flex-col gap-4 items-center py-8 relative sm:flex-row sm:justify-between">
           <h2 className="text-3xl text-primary">
             <Link to="/">#BlackMoto.GE</Link>
           </h2>
@@ -53,12 +53,14 @@ const Header = () => {
           </div>
           {showMenu && (
             <div
-              className={`absolute bg-black left-1/2 sm:left-[initial] sm:right-0 sm:transform-none transform -translate-x-1/2 p-4 md:hidden`}
+              className="vertical-nav"
               style={{
-                top: headerBounds.height,
+                top: headerBounds.height + 20,
               }}
             >
-              <Menu navigate={navigate} />
+              <div className="vertical-nav-inner">
+                <Menu navigate={navigate} />
+              </div>
             </div>
           )}
         </div>
