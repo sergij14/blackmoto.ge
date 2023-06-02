@@ -8,6 +8,9 @@ import parse from "html-react-parser";
 import Item from "../components/ItemCmp";
 import { useLocalize } from "../localization";
 
+// 1c1e1d
+// 3d4343
+
 const Home = () => {
   const { items, user } = useStore();
   const { t } = useLocalize();
@@ -41,7 +44,14 @@ const Home = () => {
 
         <div id="section_about">
           <h4 className="section-title">{t("nav.menu_1")}</h4>
-          <div className="flex flex-col md:flex-row gap-4">
+          <div
+            className="flex flex-col md:flex-row gap-4 p-4 rounded-md"
+            style={{
+              backgroundColor: "rgb(28,30,29)",
+              background:
+                "linear-gradient(270deg, rgba(61,67,67,1) 0%, rgba(28,30,29,1) 100%)",
+            }}
+          >
             <p className="text-2xl w-full md:w-7/12 lg:w-8/12">
               {parse(t("about.text"))}
             </p>

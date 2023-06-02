@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`${headerCn} top-0 w-full bg-black bg-opacity-90 z-50`}
+      className={`${headerCn} top-0 w-full bg-[#050605] bg-opacity-90 z-50`}
     >
       <LanguageSwitcher />
       <div className="max-w-screen-xl px-8 mx-auto">

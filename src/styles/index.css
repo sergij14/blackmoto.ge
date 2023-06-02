@@ -17,7 +17,7 @@ svg {
 }
 
 body {
-  @apply bg-c-bg text-gray-300;
+  @apply text-gray-300 bg-back;
 }
 
 img {
@@ -58,7 +58,7 @@ a:hover {
     @apply p-3 rounded-md text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring ring-gray-400;
   }
   .section-title {
-    @apply text-3xl font-black mb-4;
+    @apply text-3xl font-black mb-4 text-primary;
   }
   .footer {
     @apply bg-gray-900 bg-opacity-30 rounded-md p-10 text-center mt-14;

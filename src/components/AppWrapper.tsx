@@ -51,7 +51,7 @@ const AppWrapper = () => {
     <div className={`app-wrapper ${font}`}>
       <Header />
       <div className="container">
-        <img className="app-bg" alt="" src="/assets/hero.svg" />
+        {/* <img className="app-bg" alt="" src="/assets/hero.svg" /> */}
         <div className="mt-8">
           <Outlet />
         </div>
