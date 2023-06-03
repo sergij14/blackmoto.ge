@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  CSSProperties,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import useMeasure from "react-use-measure";
@@ -8,7 +14,7 @@ import { useStore } from "../store";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { setHeaderHeight } = useStore();
+  const { setHeaderHeight, headerHeight } = useStore();
   const [headerRef, headerBounds] = useMeasure();
   const [headerCn, setHeaderCn] = useState("static");
 
@@ -30,6 +36,16 @@ const Header = () => {
 
   const { t } = useLocalize();
 
+  const customHeaderStyles = useMemo(
+    () =>
+      headerHeight !== undefined && headerHeight > 200
+        ? {
+            justifyContent: "center",
+          }
+        : {},
+    [headerHeight]
+  );
+
   return (
     <header
       ref={headerRef}
@@ -39,8 +55,11 @@ const Header = () => {
       }}
     >
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex gap-6 items-center flex-wrap py-8 relative justify-between">
-          <h2 className="text-3xl text-primary w-36">
+        <div
+          style={{ ...customHeaderStyles }}
+          className="flex gap-6 items-center flex-wrap py-8 relative justify-between"
+        >
+          <h2 className="text-3xl text-primary">
             <Link to="/">
               <img className="w-32" src="/assets/logo.png" alt="BlackMoto.GE" />
             </Link>
