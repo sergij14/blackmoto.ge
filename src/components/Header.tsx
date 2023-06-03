@@ -39,7 +39,7 @@ const Header = () => {
       }}
     >
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex flex-col gap-6 flex-wrap items-center py-8 relative sm:flex-row sm:justify-between">
+        <div className="flex gap-6 items-center py-8 relative justify-between">
           <h2 className="text-3xl text-primary">
             <Link to="/">
               <img className="w-28" src="/assets/logo.png" alt="BlackMoto.GE" />
