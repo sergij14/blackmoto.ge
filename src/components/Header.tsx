@@ -39,10 +39,10 @@ const Header = () => {
       }}
     >
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex gap-6 items-center py-8 relative justify-between">
-          <h2 className="text-3xl text-primary">
+        <div className="flex gap-6 items-center flex-wrap py-8 relative justify-between">
+          <h2 className="text-3xl text-primary w-36">
             <Link to="/">
-              <img className="w-28" src="/assets/logo.png" alt="BlackMoto.GE" />
+              <img className="w-32" src="/assets/logo.png" alt="BlackMoto.GE" />
             </Link>
           </h2>
           <div data-menu-trigger="true" className="lg:hidden">
