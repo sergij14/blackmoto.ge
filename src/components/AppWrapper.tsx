@@ -9,6 +9,7 @@ import { createCollection, saveUser } from "../api/dbMethods";
 import { onSnapshot, query } from "firebase/firestore";
 import Header from "./Header";
 import { useLocalize } from "../localization";
+import Footer from "./Footer";
 
 const AUTHED_EMAILS = (import.meta.env.VITE_ADMIN_EMAILS as string).split(",");
 
@@ -44,23 +45,17 @@ const AppWrapper = () => {
     };
   }, []);
 
-  const font =  lang === "ge" ? 'font-ge' : "font-ru";
-  const {t} = useLocalize()
+  const font = lang === "ge" ? "font-ge" : "font-ru";
+  const { t } = useLocalize();
 
   return (
     <div className={`app-wrapper ${font}`}>
       <Header />
-      <div className="container">
-        {/* <img className="app-bg" alt="" src="/assets/hero.svg" /> */}
-        <div className="mt-8">
-          <Outlet />
-        </div>
-        <footer className="mt-auto pb-8">
-          <div className="footer text-lg md:text-xl">
-            &copy; {new Date().getFullYear()}, {t("terms.copyright")}
-          </div>
-        </footer>
+      {/* <img className="app-bg" alt="" src="/assets/hero.svg" /> */}
+      <div className="mt-8 container">
+        <Outlet />
       </div>
+      <Footer />
     </div>
   );
 };
