@@ -22,12 +22,12 @@ const Admin = () => {
             )}
             {user.email}
           </div>
-          <button className="nav-btn" onClick={() => userSignOut(navigate)}>
+          <button className="btn" onClick={() => userSignOut(navigate)}>
             <ArrowLeftOnRectangleIcon /> Sign Out
           </button>
         </div>
       ) : (
-        <button className="nav-btn w-max" onClick={userSignIn}>
+        <button className="btn w-max" onClick={userSignIn}>
           <ArrowRightOnRectangleIcon /> Sign In
         </button>
       )}

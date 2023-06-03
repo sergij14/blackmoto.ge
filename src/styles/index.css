@@ -41,17 +41,17 @@ a:hover {
 }
 
 @layer components {
-  .nav-btn {
-    @apply whitespace-nowrap flex gap-3 items-center bg-back-darker hover:text-white bg-opacity-95 hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
+  .btn {
+    @apply focus:outline-none focus:ring-4 ring-primary ring-opacity-20 whitespace-nowrap flex gap-3 items-center bg-back-darker hover:text-white bg-opacity-95 hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
   }
-  .nav-btn-burger {
-    @apply whitespace-nowrap flex gap-3 items-center bg-back hover:text-white bg-opacity-95 hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
+  .btn-secondary {
+    @apply focus:outline-none focus:ring-4 ring-primary ring-opacity-20 whitespace-nowrap flex gap-3 items-center bg-back hover:text-white bg-opacity-95 hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
   }
-  .hero-btn {
-    @apply flex gap-3 items-center bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md px-4 py-2 text-lg;
+  .btn-white {
+    @apply focus:outline-none focus:ring-4 ring-gray-200 ring-opacity-20 flex gap-3 items-center bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md px-4 py-2 text-lg;
   }
   .vertical-nav {
-    @apply absolute left-1/2 sm:left-[initial] sm:right-0 sm:transform-none transform -translate-x-1/2 md:hidden;
+    @apply absolute left-1/2 sm:left-[initial] sm:right-0 sm:transform-none transform -translate-x-1/2 lg:hidden;
   }
   .vertical-nav-inner {
     @apply bg-back-darker bg-opacity-95 rounded-md;

@@ -16,7 +16,7 @@ const Header = () => {
     const scrollTop = window.scrollY;
 
     scrollTop >= headerBounds.height
-      ? setHeaderCn("fixed")
+      ? setHeaderCn("sm:fixed")
       : setHeaderCn("static");
   };
 
@@ -39,18 +39,18 @@ const Header = () => {
       }}
     >
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex flex-col gap-6 flex-wrap items-center py-8 relative lg:flex-row lg:justify-between">
+        <div className="flex flex-col gap-6 flex-wrap items-center py-8 relative sm:flex-row sm:justify-between">
           <h2 className="text-3xl text-primary">
             <Link to="/">
               <img className="w-28" src="/assets/logo.png" alt="BlackMoto.GE" />
             </Link>
           </h2>
-          <div data-menu-trigger="true" className="md:hidden">
-            <button className="nav-btn">
+          <div data-menu-trigger="true" className="lg:hidden">
+            <button className="btn">
               <Bars3Icon />
             </button>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Menu navigate={navigate} />
           </div>
 

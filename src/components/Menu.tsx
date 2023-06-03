@@ -65,7 +65,7 @@ const Menu = ({
       }
     : {};
 
-  const btnCn = isBurgerMenu ? "nav-btn-burger" : "nav-btn";
+  const btnCn = isBurgerMenu ? "btn-secondary" : "btn";
 
   return (
     <div
@@ -73,7 +73,7 @@ const Menu = ({
       className={`vertical-nav-inner ${!isBurgerMenu && "bg-transparent"}`}
       style={{ ...menuStyles }}
     >
-      <div className="flex gap-2 flex-col md:flex-row md:items-start">
+      <div className="flex gap-4 flex-col lg:flex-row lg:items-start">
         <button onClick={() => handleScroll("about")} className={btnCn}>
           {t("nav.menu_1")}
         </button>

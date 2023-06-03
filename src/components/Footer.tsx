@@ -13,7 +13,7 @@ const Footer = () => {
         <p>
           &copy; {new Date().getFullYear()}, {t("terms.copyright")}
         </p>
-        <button onClick={() => navigate("/admin")} className="nav-btn">
+        <button onClick={() => navigate("/admin")} className="btn">
           <LockClosedIcon width={20} />
           Admin
         </button>

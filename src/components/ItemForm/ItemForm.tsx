@@ -86,7 +86,7 @@ export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
           );
         })}
         <button
-          className="mt-8 hero-btn self-start disabled:opacity-70 disabled:pointer-events-none"
+          className="mt-8 btn-white self-start disabled:opacity-70 disabled:pointer-events-none"
           disabled={!isDirty}
           type="submit"
         >
@@ -96,7 +96,7 @@ export default function ItemForm({ itemToEdit }: { itemToEdit?: ItemWithId }) {
       {itemToEdit && (
         <div className="w-full md:w-5/12 pt-8 md:pt-0">
           <ItemCmp {...itemToEdit} clickable={false} />
-          <button className="mt-4 nav-btn" onClick={onDelete}>
+          <button className="mt-4 btn" onClick={onDelete}>
             Remove
           </button>
         </div>

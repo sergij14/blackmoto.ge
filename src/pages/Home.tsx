@@ -28,18 +28,18 @@ const Home = () => {
           <h4 className="text-center text-2xl md:text-3xl lg:text-4xl leading-[40px] md:leading-[45px] max-w-md lg:max-w-xl lg:leading-[55px] mx-auto">
             {parse(t("hero.text"))}
           </h4>
-          <div className="flex gap-2 flex-wrap justify-center mt-4">
-            <button className="hero-btn">
+          <div className="flex gap-4 flex-wrap justify-center mt-4">
+            <button className="btn-white">
               <img src="/assets/facebook.svg" className="w-6" />
             </button>
-            <button className="hero-btn">
+            <button className="btn-white">
               <img src="/assets/insta.svg" className="w-6" />
             </button>
-            <button className="hero-btn">
+            <button className="btn-white">
               <img src="/assets/whatsapp.svg" className="w-6" />
             </button>
           </div>
-          <button className="hero-btn self-center mt-4">
+          <button className="btn-white self-center mt-4">
             <img src="/assets/call.svg" className="w-6" />
             +995 550 00 40 45
           </button>
