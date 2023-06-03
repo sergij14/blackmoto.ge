@@ -66,7 +66,7 @@ const Menu = ({
     : {};
 
   return (
-    <div ref={menuRef} className="vertical-nav-inner" style={{ ...menuStyles }}>
+    <div ref={menuRef} className={`vertical-nav-inner ${!isBurgerMenu && 'bg-transparent'}`} style={{ ...menuStyles }}>
       <div className="flex gap-2 flex-col md:flex-row md:items-start">
         <button onClick={() => handleScroll("about")} className="nav-btn">
           {t("nav.menu_1")}

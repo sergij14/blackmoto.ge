@@ -38,7 +38,9 @@ const Header = () => {
       <div className="max-w-screen-xl px-8 mx-auto">
         <div className="flex flex-col gap-4 flex-wrap items-center py-8 relative sm:flex-row sm:justify-between">
           <h2 className="text-3xl text-primary">
-            <Link to="/">#BlackMoto.GE</Link>
+            <Link to="/">
+              <img className="w-28" src="/assets/logo.png" alt="BlackMoto.GE" />
+            </Link>
           </h2>
           <div data-menu-trigger="true" className="md:hidden">
             <button className="nav-btn">

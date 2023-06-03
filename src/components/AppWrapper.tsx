@@ -14,7 +14,7 @@ import Footer from "./Footer";
 const AUTHED_EMAILS = (import.meta.env.VITE_ADMIN_EMAILS as string).split(",");
 
 const AppWrapper = () => {
-  const { setUser, setItems, lang } = useStore();
+  const { setUser, setItems, lang, headerHeight } = useStore();
 
   useEffect(() => {
     const unsubAuthState = onAuthStateChanged(auth, (user) => {
@@ -51,7 +51,7 @@ const AppWrapper = () => {
   return (
     <div className={`app-wrapper ${font}`}>
       <Header />
-      {/* <img className="app-bg" alt="" src="/assets/hero.svg" /> */}
+      <img className="app-bg" alt="" src="/assets/back.jpg" />
       <div className="mt-8 container">
         <Outlet />
       </div>

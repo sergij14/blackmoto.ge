@@ -18,11 +18,14 @@ const Home = () => {
   return (
     <>
       <div className="flex flex-col gap-14 md:gap-20 py-8">
-        <div className="text-center flex flex-col gap-2">
-          <h2 className="text-3xl md:text-4xl leading-[50px] max-w-md mx-auto">
-            {parse(t("hero.slogan"))}
-          </h2>
-          <h4 className="text-center text-2xl md:text-3xl leading-[45px] max-w-md mx-auto">
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-4 flex-col justify-center text-center sm:text-left sm:flex-row sm:justify-between items-center pb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-[35px] md:leading-[50px] lg:leading-[60px] max-w-md">
+              {parse(t("hero.slogan"))}
+            </h2>
+              <img className="w-[240px] sm:w-[310px] md:w-[390px] lg:w-[450px]" src="/assets/moto.png" />
+          </div>
+          <h4 className="text-center text-2xl md:text-3xl lg:text-4xl leading-[40px] md:leading-[45px] max-w-md lg:max-w-xl lg:leading-[55px] mx-auto">
             {parse(t("hero.text"))}
           </h4>
           <div className="flex gap-2 flex-wrap justify-center mt-4">
@@ -61,7 +64,9 @@ const Home = () => {
               alt=""
             />
           </div>
-          <p className="text-center text-xl md:text-2xl mt-8">{t("about.text_2")}</p>
+          <p className="text-center text-xl md:text-2xl mt-8">
+            {t("about.text_2")}
+          </p>
         </div>
 
         <div
