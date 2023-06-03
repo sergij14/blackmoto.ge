@@ -51,7 +51,7 @@ const AppWrapper = () => {
   return (
     <div className={`app-wrapper ${font}`}>
       <Header />
-      <img className="app-bg" alt="" src="/assets/back.jpg" />
+      {/* <img className="app-bg" alt="" src="/assets/back.jpg" /> */}
       <div className="mt-8 container">
         <Outlet />
       </div>

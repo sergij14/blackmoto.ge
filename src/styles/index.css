@@ -17,7 +17,9 @@ svg {
 }
 
 body {
-  @apply text-gray-300 bg-back;
+  @apply text-gray-300;
+  background: url(../../assets/back.jpg);
+  background-attachment: fixed;
 }
 
 img {
@@ -40,7 +42,10 @@ a:hover {
 
 @layer components {
   .nav-btn {
-    @apply whitespace-nowrap flex gap-3 items-center bg-gray-800 bg-opacity-70 hover:text-white hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
+    @apply whitespace-nowrap flex gap-3 items-center bg-back-darker hover:text-white bg-opacity-95 hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
+  }
+  .nav-btn-burger {
+    @apply whitespace-nowrap flex gap-3 items-center bg-back hover:text-white bg-opacity-95 hover:bg-opacity-80 rounded-md px-6 py-3 text-base;
   }
   .hero-btn {
     @apply flex gap-3 items-center bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md px-4 py-2 text-lg;
@@ -49,10 +54,10 @@ a:hover {
     @apply absolute left-1/2 sm:left-[initial] sm:right-0 sm:transform-none transform -translate-x-1/2 md:hidden;
   }
   .vertical-nav-inner {
-    @apply bg-back-secondary bg-opacity-90 rounded-md;
+    @apply bg-back-darker bg-opacity-95 rounded-md;
   }
   .vertical-nav-inner:after {
-    @apply absolute z-20 left-1/2 transform -translate-x-1/2 -top-3 border-r-transparent border-t-transparent border-l-transparent border-back-secondary border-[6px] border-solid block w-0 h-0;
+    @apply absolute z-20 left-1/2 transform -translate-x-1/2 -top-4 border-r-transparent border-t-transparent border-l-transparent border-back-darker border-[8px] border-solid block w-0 h-0;
     content: " ";
   }
   .items {
@@ -71,7 +76,7 @@ a:hover {
     @apply text-2xl md:text-3xl font-black mb-4 text-primary;
   }
   .footer {
-    @apply bg-gray-900 bg-opacity-30 rounded-md p-10 text-center flex flex-col gap-4 items-center justify-center sm:flex-row sm:justify-between;
+    @apply bg-back-darker bg-opacity-30 rounded-md p-10 text-center flex flex-col gap-4 items-center justify-center sm:flex-row sm:justify-between;
   }
   .app-wrapper {
     @apply relative h-full flex flex-col;

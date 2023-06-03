@@ -65,22 +65,28 @@ const Menu = ({
       }
     : {};
 
+  const btnCn = isBurgerMenu ? "nav-btn-burger" : "nav-btn";
+
   return (
-    <div ref={menuRef} className={`vertical-nav-inner ${!isBurgerMenu && 'bg-transparent'}`} style={{ ...menuStyles }}>
+    <div
+      ref={menuRef}
+      className={`vertical-nav-inner ${!isBurgerMenu && "bg-transparent"}`}
+      style={{ ...menuStyles }}
+    >
       <div className="flex gap-2 flex-col md:flex-row md:items-start">
-        <button onClick={() => handleScroll("about")} className="nav-btn">
+        <button onClick={() => handleScroll("about")} className={btnCn}>
           {t("nav.menu_1")}
         </button>
-        <button onClick={() => handleScroll("motopark")} className="nav-btn">
+        <button onClick={() => handleScroll("motopark")} className={btnCn}>
           {t("nav.menu_2")}
         </button>
-        <button onClick={() => handleScroll("terms")} className="nav-btn">
+        <button onClick={() => handleScroll("terms")} className={btnCn}>
           {(t("nav.menu_3") as string).split(" ")[0]}
         </button>
-        <button onClick={() => handleScroll("contact")} className="nav-btn">
+        <button onClick={() => handleScroll("contact")} className={btnCn}>
           {t("nav.menu_4")}
         </button>
-        <LanguageSwitcher />
+        <LanguageSwitcher btnCn={btnCn} />
       </div>
     </div>
   );

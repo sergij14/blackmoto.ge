@@ -33,10 +33,13 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`${headerCn} top-0 w-full bg-back-secondary bg-opacity-90 z-50`}
+      className={`${headerCn} top-0 w-full shadow-lg z-50 border-b-2 border-back-darker`}
+      style={{
+        background: "url(../assets/back.jpg)",
+      }}
     >
       <div className="max-w-screen-xl px-8 mx-auto">
-        <div className="flex flex-col gap-4 flex-wrap items-center py-8 relative sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-6 flex-wrap items-center py-8 relative lg:flex-row lg:justify-between">
           <h2 className="text-3xl text-primary">
             <Link to="/">
               <img className="w-28" src="/assets/logo.png" alt="BlackMoto.GE" />
