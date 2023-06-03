@@ -49,7 +49,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`${headerCn} top-0 w-full shadow-lg z-50 border-b-2 border-back-darker`}
+      className={`${headerCn} top-0 w-full shadow-lg z-50 border-b-4 border-primary border-opacity-10`}
       style={{
         background: "url(../assets/back.jpg)",
       }}
