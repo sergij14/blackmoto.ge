@@ -52,7 +52,7 @@ const Home = () => {
             style={{
               backgroundColor: "rgb(28,30,29)",
               background:
-                "linear-gradient(270deg, rgba(61,67,67,1) 0%, rgba(28,30,29,1) 100%)",
+                "linear-gradient(270deg, rgba(61,67,67,0.6) 0%, rgba(28,30,29,0.8) 80%)",
             }}
           >
             <p className="text-xl md:text-2xl w-full md:w-7/12 lg:w-8/12">
