@@ -1,10 +1,4 @@
-import React, {
-  CSSProperties,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import useMeasure from "react-use-measure";

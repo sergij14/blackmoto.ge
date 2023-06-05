@@ -1,18 +1,11 @@
 import React from "react";
-import {
-  ChatBubbleLeftIcon,
-  ChatBubbleOvalLeftIcon,
-} from "@heroicons/react/24/solid";
 import { useStore } from "../store";
 import parse from "html-react-parser";
 import Item from "../components/ItemCmp";
 import { useLocalize } from "../localization";
 
-// 1c1e1d
-// 3d4343
-
 const Home = () => {
-  const { items, user } = useStore();
+  const { items } = useStore();
   const { t } = useLocalize();
 
   return (
